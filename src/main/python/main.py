@@ -1,18 +1,15 @@
-import PySide2
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtCore import QFile, QIODevice, Slot
-from PySide2.QtWidgets import (
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtCore import QFile, QIODevice, Qt, Slot
+from PySide6.QtWidgets import (
     QApplication,
     QFileDialog,
     QPlainTextEdit,
     QTreeWidgetItem,
     QListWidgetItem,
     QMenu,
-    QAction,
     QLineEdit,
 )
-from PySide2.QtGui import QColor, QCursor
-from fbs_runtime.application_context.PySide2 import ApplicationContext
+from PySide6.QtGui import QColor, QCursor, QFocusEvent
 from copy import deepcopy
 import sys
 import os
@@ -25,6 +22,13 @@ import campaigns
 from campaign_dialog import CampaignDialog
 
 
+def data_path(name):
+    """data files (editor.ui, guids.json, ...) sit next to the exe when frozen, in the working directory otherwise"""
+    if getattr(sys, "frozen", False):
+        return os.path.join(os.path.dirname(sys.executable), name)
+    return name
+
+
 class TextEditFocusChecking(QLineEdit):
     """
     Custom single-line text box to allow for event-driven updating of XP totals
@@ -33,7 +37,7 @@ class TextEditFocusChecking(QLineEdit):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def focusOutEvent(self, e: PySide2.QtGui.QFocusEvent) -> None:
+    def focusOutEvent(self, e: QFocusEvent) -> None:
         # check for blank text
         box = self.objectName()
         if self.text() == "":
@@ -250,7 +254,7 @@ def open_file():
     widget.overclock_tree.clear()
     overclock_tree = widget.overclock_tree.invisibleRootItem()
     build_oc_tree(overclock_tree, guid_dict)
-    widget.overclock_tree.sortItems(0, PySide2.QtCore.Qt.AscendingOrder)
+    widget.overclock_tree.sortItems(0, Qt.SortOrder.AscendingOrder)
 
     # populate list of unforged ocs
     unforged_list = widget.unforged_list
@@ -561,7 +565,7 @@ def oc_ctx_menu(pos):
     ctx_menu = QMenu(widget.overclock_tree)
     add_act = ctx_menu.addAction("Add Core(s) to Inventory")
     global_pos = QCursor().pos()
-    action = ctx_menu.exec_(global_pos)
+    action = ctx_menu.exec(global_pos)
     if action == add_act:
         add_cores()
 
@@ -942,7 +946,7 @@ def edit_campaigns():
     global campaign_state
     global campaigns_dirty
     dialog = CampaignDialog(campaign_state, campaign_catalog, widget)
-    if dialog.exec_():
+    if dialog.exec():
         new_state = dialog.result_state()
         if new_state != campaign_state:
             campaign_state = new_state
@@ -1366,15 +1370,15 @@ resource_guids = {
 if __name__ == "__main__":
     # print(os.getcwd())
     # specify and open the UI
-    ui_file_name = "editor.ui"
-    appctext = ApplicationContext()
+    ui_file_name = data_path("editor.ui")
+    app = QApplication(sys.argv)
     ui_file = QFile(ui_file_name)
     if not ui_file.open(QIODevice.ReadOnly):
         print("Cannot open {}: {}".format(ui_file_name, ui_file.errorString()))
         sys.exit(-1)
 
     # load reference data
-    with open("guids.json", "r") as g:
+    with open(data_path("guids.json"), "r") as g:
         guid_dict = json.loads(g.read())
 
     try:
@@ -1394,11 +1398,16 @@ if __name__ == "__main__":
         print(loader.errorString())
         sys.exit(-1)
 
+    # these two sit on the group box's top border; Qt 6's Windows style leaves them transparent,
+    # so the border line would run through them
+    widget.combo_oc_filter.setAutoFillBackground(True)
+    widget.add_cores_button.setAutoFillBackground(True)
+
     # connect file opening function to menu item
     widget.actionOpen_Save_File.triggered.connect(open_file)
 
     # campaign editor lives in its own dialog, opened from its own menu
-    campaign_catalog = campaigns.load_catalog("campaigns.json")
+    campaign_catalog = campaigns.load_catalog(data_path("campaigns.json"))
     campaign_menu = widget.menubar.addMenu("Assignments")
     widget.action_edit_campaigns = campaign_menu.addAction("Edit assignments...")
     widget.action_edit_campaigns.setEnabled(False)
@@ -1443,5 +1452,5 @@ if __name__ == "__main__":
 
     # actually display the thing
     widget.show()
-    exit_code = appctext.app.exec_()
+    exit_code = app.exec()
     sys.exit(exit_code)

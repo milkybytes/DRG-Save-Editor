@@ -36,27 +36,12 @@ def test_container_sizes_follow_edits():
     assert gvas.dumps(reparsed) == edited
 
 
-def test_complete_active_campaign():
-    data = load("tests/sample_save3.sav")
-    save = gvas.loads(data)
-    guid, progress = campaigns.get_active_campaign(save)
-    assert progress == 2
-    completed_before = campaigns.get_completed_campaigns(save)
-    assert guid not in completed_before
-
-    assert campaigns.complete_active_campaign(save) == guid
-
-    reparsed = gvas.loads(gvas.dumps(save))
-    assert campaigns.get_active_campaign(reparsed) is None
-    assert campaigns.get_completed_campaigns(reparsed) == completed_before + [guid]
-
-
 def test_complete_with_no_active_campaign_is_a_noop():
-    save = gvas.loads(load("tests/sample_save3.sav"))
-    campaigns.complete_active_campaign(save)
-    snapshot = gvas.dumps(save)
-    assert campaigns.complete_active_campaign(save) is None
-    assert gvas.dumps(save) == snapshot
+    state = campaigns.read_state(load("tests/sample_save3.sav"))
+    campaigns.complete_active_in_state(state)
+    snapshot = {"active": state["active"], "completed": list(state["completed"])}
+    assert campaigns.complete_active_in_state(state) is None
+    assert state == snapshot
 
 
 def test_state_round_trip_and_apply():

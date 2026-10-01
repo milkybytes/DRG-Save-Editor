@@ -84,23 +84,6 @@ def set_active_campaign(save, guid, progress=0):
         campaign.insert(0, prop)
 
 
-def complete_active_campaign(save):
-    """
-    Marks the active campaign as completed and clears the active slot.
-    Returns the completed campaign's guid, or None if nothing was active.
-    """
-    active = get_active_campaign(save)
-    if active is None:
-        return None
-    guid = active[0]
-    completed = get_completed_campaigns(save)
-    if guid not in completed:
-        completed.append(guid)
-    set_completed_campaigns(save, completed)
-    clear_active_campaign(save)
-    return guid
-
-
 # ---- state used by the editor UI
 
 
@@ -113,7 +96,7 @@ def read_state(data):
 
 
 def complete_active_in_state(state):
-    """same as complete_active_campaign, on a state dict; returns the guid or None"""
+    """marks the active assignment as completed and clears the active slot; returns its guid, or None if none was active"""
     if state["active"] is None:
         return None
     guid = state["active"][0]

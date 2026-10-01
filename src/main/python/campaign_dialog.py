@@ -2,8 +2,8 @@ import re
 from copy import deepcopy
 from functools import partial
 
-from PySide2.QtCore import Qt
-from PySide2.QtWidgets import (
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (
     QDialog,
     QDialogButtonBox,
     QGroupBox,
@@ -30,7 +30,7 @@ COL_DONE, COL_PREFIX, COL_NAME, COL_GUID, COL_ASSIGN = range(5)
 class CampaignDialog(QDialog):
     """
     Edits an assignment state ({"active": ..., "completed": [...]}) without touching the save.
-    The caller reads the outcome from result_state() after exec_() returns accepted.
+    The caller reads the outcome from result_state() after exec() returns accepted.
     """
 
     def __init__(self, state, catalog, parent=None):
@@ -198,13 +198,16 @@ class CampaignDialog(QDialog):
     def result_state(self):
         """completed keeps the save's order; newly checked assignments go on the end"""
         checked = self.checked_guids()
-        current = [g for g in self.original["completed"] if g in checked]
+        # hidden assignments aren't shown, so whatever the save had for them is kept
+        current = [
+            g
+            for g in self.original["completed"]
+            if g in checked or g in campaigns.HIDDEN_GUIDS
+        ]
         added = [
             self.table.item(r, COL_GUID).text()
             for r in range(self.table.rowCount())
             if self.table.item(r, COL_GUID).text() in checked
             and self.table.item(r, COL_GUID).text() not in current
         ]
-        # hidden assignments aren't shown, so whatever the save had for them is kept
-        hidden = [g for g in self.original["completed"] if g in campaigns.HIDDEN_GUIDS]
-        return {"active": self.state["active"], "completed": current + added + hidden}
+        return {"active": self.state["active"], "completed": current + added}
