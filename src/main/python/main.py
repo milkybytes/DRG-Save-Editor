@@ -1163,11 +1163,20 @@ def remove_selected_ocs():
     list_items = widget.unforged_list.selectedItems()
     items_to_remove = list()
     for i in list_items:
-        items_to_remove.append(guid_re.search(i.text()).group(1))
+        items_to_remove.append(guid_of_list_item(i.text()))
         item = widget.unforged_list.row(i)
         widget.unforged_list.takeItem(item)
 
     remove_ocs(items_to_remove)
+
+
+def guid_of_list_item(text):
+    """
+    guid of an entry in the unforged list: "Weapon: Name (GUID)" for overclocks,
+    "Cosmetic: GUID" for cosmetics, which have no name or parentheses
+    """
+    match = guid_re.search(text) or re.search(r"([0-9A-Fa-f]{32})\s*$", text)
+    return match.group(1).upper()
 
 
 def remove_ocs(oc_list):
@@ -1176,11 +1185,13 @@ def remove_ocs(oc_list):
     global guid_dict
 
     for i in oc_list:
-        oc = unforged_ocs[i]
-        oc["status"] = "Unacquired"
-        guid_dict[i]["status"] = "Unacquired"
-        unacquired_ocs.update(oc)
-        del unforged_ocs[i]
+        oc = unforged_ocs.pop(i)
+        if isinstance(oc, dict):
+            oc["status"] = "Unacquired"
+            guid_dict[i]["status"] = "Unacquired"
+            unacquired_ocs[i] = oc
+        # cosmetics are stored as the string "Cosmetic" and aren't in the overclock data,
+        # so they're just dropped from the unforged list
 
     filter_overclocks()
 
@@ -1194,7 +1205,7 @@ def remove_all_ocs():
     unforged_list = widget.unforged_list
     for i in range(unforged_list.count()):
         item = unforged_list.item(i)
-        items_to_remove.append(guid_re.search(item.text()).group(1))
+        items_to_remove.append(guid_of_list_item(item.text()))
 
     remove_ocs(items_to_remove)
     unforged_list.clear()
