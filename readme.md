@@ -1,24 +1,29 @@
 # Deep Rock Galactic Save Editor
 
-This is a standalone DRG save editor written in python (3.6.12), using PyQt5 (5.9.2) and PySide2 (5.15.2) and packaged using the [fman build system](https://build-system.fman.io).
+This is a standalone DRG save editor written in python, using PySide6 and packaged with PyInstaller. Release builds are made by GitHub Actions when a `v*` tag is pushed.
 
 ## There are likely to be bugs, see the Known Issues and Troubleshooting section!
 ## I have largely moved on from this project, so no new features are planned, no major updates are in the pipeline, and only simple bug fixes will be performed. You are welcome to fork and continue the project on your own, just give credit.
 
 ## Requirements
-- Windows 7 (or compatibility mode)
-- ???
+- Windows 10 or later (the Qt 6 / modern Python builds don't support Windows 7)
 
 ## Installation
-Download the [DRG Save Editor.zip](https://github.com/robertnunn/DRG-Save-Editor/blob/master/DRG%20Save%20Editor.zip) file and extract the zip file and start the editor using the "start editor.cmd" batch file. 
+Download the latest zip from the Releases page, extract it, and run `DRG Save Editor.exe`.
 
+## Running from source
+```
+pip install -r requirements.txt
+python src/main/python/main.py
+```
+Run it from the repository root, since `editor.ui`, `guids.json` and `campaigns.json` are read from the working directory.
 
 ## Known Issues
 - Due to a change in how overclocks are stored adding overclocks is broken and will completely reset your save if you try it. As such, adding OCs has been disabled and will not happen, even if you somehow manage to add some to the "Acquired but unforged" section.
 - The editor works by looking for specific values in the raw data of the save, it doesn't decode the data into a nice, neat python object. As a result if certain things aren't present in the save (e.g., >0 forged overclocks, certain resources) the editor will malfunction and give nonsensical results. The solution is to acquire at least one of the resources in game _then_ use the editor.
 
 ## Troubleshooting
-If the editor fails to start, please add a second line to the "start editor.cmd" that's just "pause". This will let you see any error messages that will be necessary for bug fixes. 
+If the editor fails to start, please run it from source (see Running from source) in a command prompt. This will let you see any error messages that will be necessary for bug fixes. 
 
 If the editor opens but doesn't edit your save properly (i.e., values not being read properly, changes not being reflected in-game, etc) please open an issue, describe the problem as thoroughly as you can, and attach a copy of your save file from BEFORE any edits were attempted.
 
