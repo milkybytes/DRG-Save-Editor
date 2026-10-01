@@ -2,9 +2,6 @@
 
 This is a standalone DRG save editor written in python, using PySide6 and packaged with PyInstaller. Release builds are made by GitHub Actions when a `v*` tag is pushed.
 
-## There are likely to be bugs, see the Known Issues and Troubleshooting section!
-## I have largely moved on from this project, so no new features are planned, no major updates are in the pipeline, and only simple bug fixes will be performed. You are welcome to fork and continue the project on your own, just give credit.
-
 ## Requirements
 - Windows 10 or later (the Qt 6 / modern Python builds don't support Windows 7)
 
@@ -97,7 +94,6 @@ Some notes:
 - "Restore from backup" option in toolbar menu
 
 ## Would be nice, but ehh...
-- Assignment support
 - Character loadout support
 - Perk support
 - Weapon modification support
