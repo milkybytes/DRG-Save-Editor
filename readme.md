@@ -38,6 +38,10 @@ Some notes:
 
 ![main_screen](sshot.png)
 ## Changelog
+- v1.6
+    - Assignment support
+    - CI/CD flow for building the executable and running tests on PRs
+    - Upgrades to support Python 3.10+
 - v1.5
     - Updated editor for Season 2
     - Can adjust season xp and scrip
