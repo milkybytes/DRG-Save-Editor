@@ -21,6 +21,8 @@ import re
 from pprint import pprint as pp
 import json
 import winreg
+import campaigns
+from campaign_dialog import CampaignDialog
 
 
 class TextEditFocusChecking(QLineEdit):
@@ -200,6 +202,7 @@ def update_rank():
 def open_file():
     global file_name
     global save_data
+    previous_file_name = file_name
     # open file dialog box, start in steam install path if present
     file_name = QFileDialog.getOpenFileName(
         None,
@@ -208,6 +211,10 @@ def open_file():
         "Player Save Files (*.sav);;All Files (*.*)",
     )[0]
     # print('about to open file')
+    if not file_name:
+        # dialog cancelled; keep whatever was previously open
+        file_name = previous_file_name
+        return
 
     widget.setWindowTitle(f"DRG Save Editor - {file_name}")  # window-dressing
     with open(file_name, "rb") as f:
@@ -587,10 +594,14 @@ def add_cores():
 
 @Slot()
 def save_changes():
+    if not file_name:
+        return  # no save file open yet
     changes = get_values()
     changes["unforged"] = unforged_ocs
     # pp(changes)
     save_file = make_save_file(file_name, changes)
+    if campaigns_dirty and campaign_state is not None:
+        save_file = campaigns.apply_state(save_file, campaign_state)
     with open(file_name, "wb") as f:
         f.write(save_file)
 
@@ -909,6 +920,36 @@ def reset_values():
     widget.season_xp.setText(str(season_total_xp % xp_per_season_level))
     widget.season_lvl_text.setText(str(season_total_xp // xp_per_season_level))
     widget.scrip_text.setText(str(stats["season"]["scrip"]))
+
+    load_campaign_state()
+
+
+def load_campaign_state():
+    # campaign edits are kept as a small state dict and only written into the save on save
+    global campaign_state
+    global campaigns_dirty
+    try:
+        campaign_state = campaigns.read_state(save_data)
+    except Exception as e:  # unreadable or very old save: just leave campaigns alone
+        print(f"campaigns unavailable: {e}")
+        campaign_state = None
+    campaigns_dirty = False
+    widget.action_edit_campaigns.setEnabled(campaign_state is not None)
+
+
+@Slot()
+def edit_campaigns():
+    global campaign_state
+    global campaigns_dirty
+    dialog = CampaignDialog(campaign_state, campaign_catalog, widget)
+    if dialog.exec_():
+        new_state = dialog.result_state()
+        if new_state != campaign_state:
+            campaign_state = new_state
+            campaigns_dirty = True
+            widget.statusBar().showMessage(
+                "Assignment changes will be written when you save.", 8000
+            )
 
 
 @Slot()
@@ -1301,6 +1342,9 @@ file_name = ""
 save_data = b""
 xp_per_season_level = 5000
 season_guid = season_guids[2]
+campaign_state = None
+campaign_catalog = dict()
+campaigns_dirty = False
 guid_re = re.compile(r".*\(([0-9A-F]*)\)")
 resource_guids = {
     "yeast": "078548B93232C04085F892E084A74100",
@@ -1352,6 +1396,14 @@ if __name__ == "__main__":
 
     # connect file opening function to menu item
     widget.actionOpen_Save_File.triggered.connect(open_file)
+
+    # campaign editor lives in its own dialog, opened from its own menu
+    campaign_catalog = campaigns.load_catalog("campaigns.json")
+    campaign_menu = widget.menubar.addMenu("Assignments")
+    widget.action_edit_campaigns = campaign_menu.addAction("Edit assignments...")
+    widget.action_edit_campaigns.setEnabled(False)
+    widget.action_edit_campaigns.triggered.connect(edit_campaigns)
+
     # set column names for overclock treeview
     widget.overclock_tree.setHeaderLabels(["Overclock", "Status", "GUID"])
 
