@@ -19,6 +19,8 @@ from pprint import pprint as pp
 import json
 import winreg
 import campaigns
+import schematics
+import seasons
 from campaign_dialog import CampaignDialog
 
 
@@ -261,16 +263,19 @@ def open_file():
     populate_unforged_list(unforged_list, unforged_ocs)
 
 
+def unforged_label(guid, entry):
+    if not isinstance(entry, dict):  # a cosmetic we have no data for
+        return f"Cosmetic: {guid}"
+    if entry.get("cosmetic"):  # every cosmetic exists once per class
+        return f'{entry["class"]}: {entry["weapon"]}: {entry["name"]} ({guid})'
+    return f'{entry["weapon"]}: {entry["name"]} ({guid})'
+
+
 def populate_unforged_list(list_widget, unforged):
-    # populates the list on acquired but unforged overclocks (includes cosmetics)
+    # populates the list of acquired but unforged overclocks and cosmetics
     list_widget.clear()
     for k, v in unforged.items():
-        oc = QListWidgetItem(None)
-        try:  # cosmetic overclocks don't have these values
-            oc.setText(f'{v["weapon"]}: {v["name"]} ({k})')
-        except:
-            oc.setText(f"Cosmetic: {k}")
-        list_widget.addItem(oc)
+        list_widget.addItem(QListWidgetItem(unforged_label(k, v)))
 
 
 def update_season_data():
@@ -278,23 +283,11 @@ def update_season_data():
 
 
 def get_season_data(save_bytes):
-    global season_guid
-    # scrip_marker = bytes.fromhex("546F6B656E73")
-    season_xp_marker = bytes.fromhex(season_guid)
-    season_xp_offset = 48
-    scrip_offset = 88
-
-    season_xp_pos = save_bytes.find(season_xp_marker) + season_xp_offset
-    scrip_pos = save_bytes.find(season_xp_marker) + scrip_offset
-
-    if season_xp_pos == season_xp_offset - 1 and scrip_pos == scrip_offset - 1:
+    season = seasons.read_season(save_bytes, season_guid)
+    if season is None:  # this save has no entry for the selected season
         widget.season_group.setEnabled(False)
         return {"xp": 0, "scrip": 0}
-
-    season_xp = struct.unpack("i", save_bytes[season_xp_pos : season_xp_pos + 4])[0]
-    scrip = struct.unpack("i", save_bytes[scrip_pos : scrip_pos + 4])[0]
-
-    return {"xp": season_xp, "scrip": scrip}
+    return season
 
 
 def get_resources(save_bytes):
@@ -582,7 +575,7 @@ def add_cores():
     items_to_add = list()
     for i in selected:
         if i.text(1) == "Unacquired":
-            items_to_add.append(f"{i.parent().text(0)}: {i.text(0)} ({i.text(2)})")
+            items_to_add.append(unforged_label(i.text(2), guid_dict[i.text(2)]))
             guid_dict[i.text(2)]["status"] = "Unforged"
             unforged_ocs.update({i.text(2): guid_dict[i.text(2)]})
             del unacquired_ocs[i.text(2)]
@@ -604,6 +597,11 @@ def save_changes():
     changes["unforged"] = unforged_ocs
     # pp(changes)
     save_file = make_save_file(file_name, changes)
+    # the acquired-but-unforged overclocks and cosmetics, as edited in the Overclocks panel
+    save_file = schematics.apply_unforged(save_file, list(unforged_ocs))
+    save_file = seasons.apply_season(
+        save_file, season_guid, changes["season"]["xp"], changes["season"]["scrip"]
+    )
     if campaigns_dirty and campaign_state is not None:
         save_file = campaigns.apply_state(save_file, campaign_state)
     with open(file_name, "wb") as f:
@@ -770,60 +768,6 @@ def make_save_file(file_path, change_data):
         + save_data[gun_promo_pos + promo_levels_offset + 4 :]
     )
     # print(f'3. {len(save_data)}')
-    # write overclocks
-    search_term = b"ForgedSchematics"  # \x00\x0F\x00\x00\x00Struct'
-    search_end = b"SkinFixupCounter"
-    pos = save_data.find(search_term)
-    end_pos = (
-        save_data.find(search_end) - 4
-    )  # means I don't have to hardcode the boundary bytes
-    # print(f'pos: {pos}, end_pos: {end_pos}')
-
-    # this is currently broken, don't care enough to put more effort into fixing it.
-    # the problem seems to be related to the \x5D in the middle of the first hex string,
-    # this changes to \x6D when going from 1->2 overclocks. Similarly, the \x10 in the 
-    # middle of the second hex string (\x74\x79\x00\x10 <- this one) changes to \x20
-    # when going from 1->2 overclocks. My testing involved one weapon OC and one cosmetic OC.
-    # If someone can provide a save file with more than 2 overclocks waiting to be forged,
-    # that might help figure it out, but I'm currently stumped.
-    # 
-    # if pos > 0:
-    #     num_forged = struct.unpack("i", save_data[pos + 63 : pos + 67])[0]
-    #     unforged_ocs = new_values["unforged"]
-    #     if len(unforged_ocs) > 0:
-    #         ocs = (
-    #             b"\x10\x00\x00\x00\x4F\x77\x6E\x65\x64\x53\x63\x68\x65\x6D\x61\x74\x69\x63\x73\x00\x0E\x00\x00\x00\x41\x72\x72\x61\x79\x50\x72\x6F\x70\x65\x72\x74\x79\x00\x5D\x00\x00\x00\x00\x00\x00\x00\x0F\x00\x00\x00\x53\x74\x72\x75\x63\x74\x50\x72\x6F\x70\x65\x72\x74\x79\x00\x00"
-    #             + struct.pack("i", len(unforged_ocs))
-    #             + b"\x10\x00\x00\x00\x4F\x77\x6E\x65\x64\x53\x63\x68\x65\x6D\x61\x74\x69\x63\x73\x00\x0F\x00\x00\x00\x53\x74\x72\x75\x63\x74\x50\x72\x6F\x70\x65\x72\x74\x79\x00\x10\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x47\x75\x69\x64\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-    #         )
-    #         uuids = [bytes.fromhex(i) for i in unforged_ocs.keys()]
-    #         for i in uuids:
-    #             ocs += i
-    #     else:
-    #         ocs = b""
-    #     save_data = (
-    #         save_data[: pos + (num_forged * 16) + 141] + ocs + save_data[end_pos:]
-    #     )
-
-    # write season data
-    season_xp_marker = bytes.fromhex(season_guid)
-    season_xp_offset = 48
-    season_xp_pos = save_data.find(season_xp_marker) + season_xp_offset
-    # scrip_marker = b"Tokens"
-    scrip_offset = 88
-    scrip_pos = save_data.find(season_xp_marker) + scrip_offset
-
-    save_data = (
-        save_data[:season_xp_pos]
-        + struct.pack("i", new_values["season"]["xp"])
-        + save_data[season_xp_pos + 4 :]
-    )
-    save_data = (
-        save_data[:scrip_pos]
-        + struct.pack("i", new_values["season"]["scrip"])
-        + save_data[scrip_pos + 4 :]
-    )
-
     return save_data
     # with open(f"{file_name}", "wb") as t:
     #     t.write(save_data)
@@ -1343,10 +1287,7 @@ rank_titles = [
     "Gilded Master",
 ]
 
-season_guids = {
-    1: "A47D407EC0E4364892CE2E03DE7DF0B3",
-    2: "B860B55F1D1BB54D8EE2E41FDA9F5838",
-}
+season_guids = seasons.SEASON_GUIDS
 
 # global variable definitions
 forged_ocs = dict()
@@ -1356,7 +1297,7 @@ stats = dict()
 file_name = ""
 save_data = b""
 xp_per_season_level = 5000
-season_guid = season_guids[2]
+season_guid = seasons.SEASON_GUIDS[seasons.LATEST_SEASON]
 campaign_state = None
 campaign_catalog = dict()
 campaigns_dirty = False
@@ -1391,6 +1332,12 @@ if __name__ == "__main__":
     # load reference data
     with open(data_path("guids.json"), "r") as g:
         guid_dict = json.loads(g.read())
+    # cosmetics are listed next to the weapons, as one group per kind (Beards, Victory Poses, ...)
+    try:
+        with open(data_path("cosmetics.json"), "r") as c:
+            guid_dict.update(json.loads(c.read()))
+    except OSError:
+        pass  # without it, cosmetics are still kept in the save, they just show up as their guid
 
     try:
         # find the install path for the steam version
