@@ -1,18 +1,15 @@
-import PySide2
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtCore import QFile, QIODevice, Slot
-from PySide2.QtWidgets import (
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtCore import QFile, QIODevice, Qt, Slot
+from PySide6.QtWidgets import (
     QApplication,
     QFileDialog,
     QPlainTextEdit,
     QTreeWidgetItem,
     QListWidgetItem,
     QMenu,
-    QAction,
     QLineEdit,
 )
-from PySide2.QtGui import QColor, QCursor
-from fbs_runtime.application_context.PySide2 import ApplicationContext
+from PySide6.QtGui import QColor, QCursor, QFocusEvent
 from copy import deepcopy
 import sys
 import os
@@ -21,6 +18,15 @@ import re
 from pprint import pprint as pp
 import json
 import winreg
+import campaigns
+from campaign_dialog import CampaignDialog
+
+
+def data_path(name):
+    """data files (editor.ui, guids.json, ...) sit next to the exe when frozen, in the working directory otherwise"""
+    if getattr(sys, "frozen", False):
+        return os.path.join(os.path.dirname(sys.executable), name)
+    return name
 
 
 class TextEditFocusChecking(QLineEdit):
@@ -31,7 +37,7 @@ class TextEditFocusChecking(QLineEdit):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def focusOutEvent(self, e: PySide2.QtGui.QFocusEvent) -> None:
+    def focusOutEvent(self, e: QFocusEvent) -> None:
         # check for blank text
         box = self.objectName()
         if self.text() == "":
@@ -200,6 +206,7 @@ def update_rank():
 def open_file():
     global file_name
     global save_data
+    previous_file_name = file_name
     # open file dialog box, start in steam install path if present
     file_name = QFileDialog.getOpenFileName(
         None,
@@ -208,6 +215,10 @@ def open_file():
         "Player Save Files (*.sav);;All Files (*.*)",
     )[0]
     # print('about to open file')
+    if not file_name:
+        # dialog cancelled; keep whatever was previously open
+        file_name = previous_file_name
+        return
 
     widget.setWindowTitle(f"DRG Save Editor - {file_name}")  # window-dressing
     with open(file_name, "rb") as f:
@@ -243,7 +254,7 @@ def open_file():
     widget.overclock_tree.clear()
     overclock_tree = widget.overclock_tree.invisibleRootItem()
     build_oc_tree(overclock_tree, guid_dict)
-    widget.overclock_tree.sortItems(0, PySide2.QtCore.Qt.AscendingOrder)
+    widget.overclock_tree.sortItems(0, Qt.SortOrder.AscendingOrder)
 
     # populate list of unforged ocs
     unforged_list = widget.unforged_list
@@ -554,7 +565,7 @@ def oc_ctx_menu(pos):
     ctx_menu = QMenu(widget.overclock_tree)
     add_act = ctx_menu.addAction("Add Core(s) to Inventory")
     global_pos = QCursor().pos()
-    action = ctx_menu.exec_(global_pos)
+    action = ctx_menu.exec(global_pos)
     if action == add_act:
         add_cores()
 
@@ -587,10 +598,14 @@ def add_cores():
 
 @Slot()
 def save_changes():
+    if not file_name:
+        return  # no save file open yet
     changes = get_values()
     changes["unforged"] = unforged_ocs
     # pp(changes)
     save_file = make_save_file(file_name, changes)
+    if campaigns_dirty and campaign_state is not None:
+        save_file = campaigns.apply_state(save_file, campaign_state)
     with open(file_name, "wb") as f:
         f.write(save_file)
 
@@ -909,6 +924,36 @@ def reset_values():
     widget.season_xp.setText(str(season_total_xp % xp_per_season_level))
     widget.season_lvl_text.setText(str(season_total_xp // xp_per_season_level))
     widget.scrip_text.setText(str(stats["season"]["scrip"]))
+
+    load_campaign_state()
+
+
+def load_campaign_state():
+    # campaign edits are kept as a small state dict and only written into the save on save
+    global campaign_state
+    global campaigns_dirty
+    try:
+        campaign_state = campaigns.read_state(save_data)
+    except Exception as e:  # unreadable or very old save: just leave campaigns alone
+        print(f"campaigns unavailable: {e}")
+        campaign_state = None
+    campaigns_dirty = False
+    widget.action_edit_campaigns.setEnabled(campaign_state is not None)
+
+
+@Slot()
+def edit_campaigns():
+    global campaign_state
+    global campaigns_dirty
+    dialog = CampaignDialog(campaign_state, campaign_catalog, widget)
+    if dialog.exec():
+        new_state = dialog.result_state()
+        if new_state != campaign_state:
+            campaign_state = new_state
+            campaigns_dirty = True
+            widget.statusBar().showMessage(
+                "Assignment changes will be written when you save.", 8000
+            )
 
 
 @Slot()
@@ -1301,6 +1346,9 @@ file_name = ""
 save_data = b""
 xp_per_season_level = 5000
 season_guid = season_guids[2]
+campaign_state = None
+campaign_catalog = dict()
+campaigns_dirty = False
 guid_re = re.compile(r".*\(([0-9A-F]*)\)")
 resource_guids = {
     "yeast": "078548B93232C04085F892E084A74100",
@@ -1322,15 +1370,15 @@ resource_guids = {
 if __name__ == "__main__":
     # print(os.getcwd())
     # specify and open the UI
-    ui_file_name = "editor.ui"
-    appctext = ApplicationContext()
+    ui_file_name = data_path("editor.ui")
+    app = QApplication(sys.argv)
     ui_file = QFile(ui_file_name)
     if not ui_file.open(QIODevice.ReadOnly):
         print("Cannot open {}: {}".format(ui_file_name, ui_file.errorString()))
         sys.exit(-1)
 
     # load reference data
-    with open("guids.json", "r") as g:
+    with open(data_path("guids.json"), "r") as g:
         guid_dict = json.loads(g.read())
 
     try:
@@ -1350,8 +1398,21 @@ if __name__ == "__main__":
         print(loader.errorString())
         sys.exit(-1)
 
+    # these two sit on the group box's top border; Qt 6's Windows style leaves them transparent,
+    # so the border line would run through them
+    widget.combo_oc_filter.setAutoFillBackground(True)
+    widget.add_cores_button.setAutoFillBackground(True)
+
     # connect file opening function to menu item
     widget.actionOpen_Save_File.triggered.connect(open_file)
+
+    # campaign editor lives in its own dialog, opened from its own menu
+    campaign_catalog = campaigns.load_catalog(data_path("campaigns.json"))
+    campaign_menu = widget.menubar.addMenu("Assignments")
+    widget.action_edit_campaigns = campaign_menu.addAction("Edit assignments...")
+    widget.action_edit_campaigns.setEnabled(False)
+    widget.action_edit_campaigns.triggered.connect(edit_campaigns)
+
     # set column names for overclock treeview
     widget.overclock_tree.setHeaderLabels(["Overclock", "Status", "GUID"])
 
@@ -1391,5 +1452,5 @@ if __name__ == "__main__":
 
     # actually display the thing
     widget.show()
-    exit_code = appctext.app.exec_()
+    exit_code = app.exec()
     sys.exit(exit_code)

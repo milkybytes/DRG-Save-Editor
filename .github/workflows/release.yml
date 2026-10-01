@@ -1,0 +1,49 @@
+name: Build and release
+
+on:
+  push:
+    branches: [master]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt pytest
+      # test_editor.py needs new sample saves (see readme), so only the parser/assignment tests run for now
+      - run: python -m pytest tests/test_gvas.py -q
+
+  release:
+    # only for version tags, e.g. `git tag v1.6 && git push origin v1.6`
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: test
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt pyinstaller
+      - name: Build
+        shell: bash
+        run: |
+          pyinstaller --noconfirm --windowed --name "DRG Save Editor" \
+            --icon "$PWD/src/main/icons/Icon.ico" --paths src/main/python \
+            src/main/python/main.py
+          # the app reads these from next to the exe
+          cp editor.ui guids.json campaigns.json "dist/DRG Save Editor/"
+      - name: Zip
+        shell: pwsh
+        run: Compress-Archive -Path "dist/DRG Save Editor" -DestinationPath "DRG-Save-Editor-${{ github.ref_name }}.zip"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: DRG-Save-Editor-${{ github.ref_name }}.zip
+          generate_release_notes: true

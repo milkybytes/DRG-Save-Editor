@@ -1,0 +1,254 @@
+{
+    "2ADFD5EB2C185B4C9DD7F7E98056F39E": {
+        "name": "Anniversary Bonus",
+        "prefix": "HS.YEAR.8.2026"
+    },
+    "1FAD62FB72DA544ABAEAFFB22393CE81": {
+        "name": "Anniversary Bonus",
+        "prefix": "HS.YEAR.5.2023"
+    },
+    "0FE9DC574DEBE94D9ACAF973C1205FE9": {
+        "name": "Armor Hunt: Black Crag + Gloomstalker Mask MK3",
+        "prefix": "PRASAH80"
+    },
+    "F3A1E0BFBC02504CB2905EE190806F44": {
+        "name": "Armor Hunt: Regal Aegis  + Gloomstalker Mask MK2",
+        "prefix": "PRASAH60"
+    },
+    "BAEC7274224DC94F82179F01C85B38A5": {
+        "name": "Armor Hunt: Scale Brigade",
+        "prefix": "PRASAH100"
+    },
+    "A10A07B31FACE14BA3CF820FCE804330": {
+        "name": "Armor Hunt: Toxic Defender + Gloomstalker Mask MK1",
+        "prefix": "PRASAH40"
+    },
+    "92767FD4847F324FACDCF3687F47ACA8": {
+        "name": "Beyond Lethal",
+        "prefix": "WE.HAZ5+"
+    },
+    "5E25F569FACA7E459CC9C74C115AC218": {
+        "name": "Company Benefits: Mineral Trading Network",
+        "prefix": "TRAD101"
+    },
+    "666596A9FF27E04884891E72F8154DF6": {
+        "name": "Halloween Party Special",
+        "prefix": "HPS.Horror2025"
+    },
+    "0963DAC28D64EA4499C641261C54A948": {
+        "name": "Heavy Duty",
+        "prefix": "RAW32"
+    },
+    "2C2F877FF2BBB74E8FBD758C98E3097E": {
+        "name": "Hoxxes Summer Cruise",
+        "prefix": ""
+    },
+    "125ACE53F5D82040B8FEB360860694B7": {
+        "name": "Hoxxes Summer Cruise",
+        "prefix": ""
+    },
+    "6AA04E604F50764A92A6CF4CF3E7685D": {
+        "name": "Hunt For Lederhosen",
+        "prefix": "SG.N.LDRHSN"
+    },
+    "3682B13630F5024AB60BA1C4F3C518B1": {
+        "name": "Last Year's Blessings",
+        "prefix": ""
+    },
+    "24899C6A8A159B4E9BD9CFAC0BCADB9A": {
+        "name": "Last Year's Horrors",
+        "prefix": ""
+    },
+    "F2E521134B98734D9FE5F5B0B934EFB0": {
+        "name": "Last Year's Lager",
+        "prefix": "LST.YR.H4T"
+    },
+    "62AEC1489242304B95AC0E9BF890DDC5": {
+        "name": "Last Year's Spring Fashion",
+        "prefix": "GRT.EG.HNT.OLD.HTS"
+    },
+    "83E1F810373C9643A5BA8EAD5736E3C2": {
+        "name": "Last Year's Spring Fashion",
+        "prefix": ""
+    },
+    "89FF07C60DE9CB49B5517D3C8522B840": {
+        "name": "Last Year's Summer Fashion",
+        "prefix": ""
+    },
+    "0B71989A017C0042A13AE2B1ADB01CFC": {
+        "name": "Last Year's Summer Fashion",
+        "prefix": ""
+    },
+    "7AB4B0EE323CAE4E95CC1D6C7F6E7AF3": {
+        "name": "License Upgrade: \"Hurricane\" Guided Rocket System",
+        "prefix": "WLC.GN"
+    },
+    "4A1BA42465EBBF4D9617A702BFE2FEA6": {
+        "name": "License Upgrade: \"Stubby\" Voltaic SMG",
+        "prefix": "WLC.EN"
+    },
+    "02C16B13235FD94AB308D9B3D4910853": {
+        "name": "License Upgrade: \"Thunderhead\" Heavy Autocannon",
+        "prefix": ""
+    },
+    "F8DD8E3B88F8CD4C88A5BF1E6724F14B": {
+        "name": "License Upgrade: ArmsKore Coil Gun",
+        "prefix": "WLC.GN"
+    },
+    "D95610B8D9765D4783A2536B2EC70CBC": {
+        "name": "License Upgrade: BRT7 Burst Fire Gun",
+        "prefix": "WLC.GN"
+    },
+    "87B52CD823F3D545925A21A98878437A": {
+        "name": "License Upgrade: Breach Cutter",
+        "prefix": "WLC.EN"
+    },
+    "FE9760992C2EA447AF7E86B80A19F6B6": {
+        "name": "License Upgrade: Colette Wave Cooker",
+        "prefix": "WLC.DR"
+    },
+    "CDA1E35EF437CF46B3115228DE62779D": {
+        "name": "License Upgrade: Corrosive Sludge Pump",
+        "prefix": "WLC.DR"
+    },
+    "6B22F7E62063634D8AE9B797A805A2B6": {
+        "name": "License Upgrade: Cryo Cannon",
+        "prefix": "WLC.DR"
+    },
+    "21BBCD785467D041ABA4BAE3FE787FC2": {
+        "name": "License Upgrade: DRAK-25 Plasma Carbine",
+        "prefix": "WLC.SC"
+    },
+    "3C5A3F5A12C39C459740675B500FC9E7": {
+        "name": "License Upgrade: Experimental Plasma Charger",
+        "prefix": "WLC.DR"
+    },
+    "113687D9E7C872419D4670104E1B8963": {
+        "name": "License Upgrade: LOK-1 Smart Rifle",
+        "prefix": "WLC.EN"
+    },
+    "1DC1352BD20460449A898C1664C7461E": {
+        "name": "License Upgrade: M1000 Classic",
+        "prefix": "WLC.SC"
+    },
+    "0DDF611E13FC7E46B3F0547288A03C99": {
+        "name": "License Upgrade: Nishanka Boltshark X-80",
+        "prefix": "WLC.SC"
+    },
+    "F96BB86204527A4C982A9928D3EEBFFE": {
+        "name": "License Upgrade: Shard Diffractor",
+        "prefix": "WLC.EN"
+    },
+    "A3E018F328A8184186CB446466AE7A1D": {
+        "name": "License Upgrade: Zhukov NUK17",
+        "prefix": "WLC.SC"
+    },
+    "EF26DF53835E42459A47420F2A90105A": {
+        "name": "Lunar Festival 2023",
+        "prefix": "HS.LF23"
+    },
+    "79611ECFE85DDE41897BA0FFCF590CF3": {
+        "name": "Lunar Festival 2026",
+        "prefix": "HS.LF26"
+    },
+    "19CA7E3AC8736F4BA2C0389AB356EE37": {
+        "name": "New Hazard Level: Lethal",
+        "prefix": "WE.HAZ5"
+    },
+    "C3CB2DA8AC65BB4597AC157E7F0F8C25": {
+        "name": "OPERATION: ROGUE CORE",
+        "prefix": "RC.CLB.DTL"
+    },
+    "1FF738E18E52B145A3615EE6CD943B74": {
+        "name": "Objective: Breach the Core",
+        "prefix": "CP.BTC"
+    },
+    "BF000BFF5172AA41A7634B81E6306584": {
+        "name": "Objective: Conquer Hoxxes IV",
+        "prefix": "101A"
+    },
+    "7A7DE2576A3F154C9BDB7A2C8559B8B1": {
+        "name": "Oktoberfest Celebration",
+        "prefix": "SG.N.PZL"
+    },
+    "7A58749AD50F2948A3647269F41FA04C": {
+        "name": "Pickaxe Hunt: Chasm-Borne Cliffhanger",
+        "prefix": "PRASPH20"
+    },
+    "E9DB3DBDD361564FBD38C778ADDC1156": {
+        "name": "Pickaxe Hunt: Drift Crusher",
+        "prefix": "PRASPH70"
+    },
+    "4A712F18406F1440BC9ACCF088A0EF10": {
+        "name": "Pickaxe Hunt: Gadgeteer's Favorite",
+        "prefix": "PRASPH30"
+    },
+    "087F12350B00574099504DFDD80797A6": {
+        "name": "Pickaxe Hunt: Reaper's Claw",
+        "prefix": "PRASPH50"
+    },
+    "F64101BCF2C81D4AA06D9F941A227BF9": {
+        "name": "Promotion Qualification - Driller",
+        "prefix": "PROM42.DR"
+    },
+    "22A956762189954194534B981E6BB98B": {
+        "name": "Promotion Qualification - Engineer",
+        "prefix": "PROM42.EN"
+    },
+    "58A6C2211AA5844B8853A3E02C67ABBE": {
+        "name": "Promotion Qualification - Gunner",
+        "prefix": "PROM42.GN"
+    },
+    "C53C401F8F688441848D46C20873D28D": {
+        "name": "Promotion Qualification - Scout",
+        "prefix": "PROM42.SC"
+    },
+    "A405034D920FFA4CA811F579D17C1B35": {
+        "name": "RELICS OF HOXXES - PART I: Old Gold Excavation",
+        "prefix": "S06.P1.RLC.HXS"
+    },
+    "16D44B136137344DBCA30DD32BDF538F": {
+        "name": "RELICS OF HOXXES - PART II: Ossirans - Menace or Nuisance?",
+        "prefix": "S06.P2.RLC.HXS"
+    },
+    "10D7D5C3AF33B34A8D96CA69246B6F8D": {
+        "name": "Rocktoberfest Celebration",
+        "prefix": "SG.N.PRZL"
+    },
+    "0ACC971E40F48143B9B19CE048934134": {
+        "name": "SPEC OPS: Industrial Sabotage",
+        "prefix": "WRCK.T.RVL"
+    },
+    "2702AD8A0608BC46B66E2D349A60E0AB": {
+        "name": "SPEC OPS: Sabotage Training",
+        "prefix": "WRCK.T.RVL"
+    },
+    "996D61293E86524F9E5709E29FCA8E48": {
+        "name": "THE YULETIDE ELF HUNT",
+        "prefix": "YS.E.L.F.C."
+    },
+    "20ADDE8123893247A5D31CADA8213FF6": {
+        "name": "The Fashion of Yuletide Past",
+        "prefix": ""
+    },
+    "DCEAB9574685EB4FB1136C9C1BCC6909": {
+        "name": "The Great Egg Hunt 2023",
+        "prefix": "GRT.EG.HNT"
+    },
+    "A406B053B2736E458ABC298AF351F64B": {
+        "name": "The Great Egg Hunt 2026",
+        "prefix": "GRT.EG.HNT"
+    },
+    "B7903625E3092B429A8441A4C50E38B9": {
+        "name": "Weekly Core Hunt",
+        "prefix": "CH.RND"
+    },
+    "EA8179EFA8FCD343A46E0EAD0114B8F1": {
+        "name": "Weekly Priority Assignment",
+        "prefix": "WA.RND"
+    },
+    "D322BFB4325D4A40B41074D9B1679626": {
+        "name": "Yearly Performance Bonus",
+        "prefix": "HS.YPB2025"
+    }
+}
