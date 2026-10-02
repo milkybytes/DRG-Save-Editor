@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (
     QMainWindow,
     QPushButton,
     QScrollArea,
+    QSpinBox,
     QSplitter,
     QStackedWidget,
     QToolButton,
@@ -30,7 +31,7 @@ from PySide6.QtWidgets import (
 )
 
 from campaign_page import CampaignPage
-from cards import Banner, Card
+from cards import Banner, Card, HazardStripe
 import theme
 from theme import CLASS_COLORS
 
@@ -44,6 +45,7 @@ MINERALS = [
     ("jadiz_text", "Jadiz"),
     ("magnite_text", "Magnite"),
     ("umanite_text", "Umanite"),
+    ("phazy_text", "Phazyonite"),
 ]
 BREWING = [
     ("barley_text", "Barley Bulb"),
@@ -56,8 +58,6 @@ MISC = [
     ("perk_text", "Perk Points"),
     ("core_text", "Blank Cores"),
     ("error_text", "Error Cubes"),
-    ("data_text", "Data Cells"),
-    ("phazy_text", "Phazyonite"),
 ]
 
 NO_FILE = "No save loaded. Open one with Open save…"
@@ -82,8 +82,8 @@ def page(content_layout_builder):
     scroll.setFrameShape(QFrame.NoFrame)
     inner = QWidget()
     layout = QVBoxLayout(inner)
-    layout.setContentsMargins(0, 0, 14, 0)
-    layout.setSpacing(18)
+    layout.setContentsMargins(0, 0, 12, 0)
+    layout.setSpacing(14)
     content_layout_builder(layout)
     scroll.setWidget(inner)
     return scroll
@@ -191,15 +191,14 @@ def build_main_window(focus_edit=QLineEdit):
     sidebar.setObjectName("sidebar")
     sidebar.setFixedWidth(230)
     side = QVBoxLayout(sidebar)
-    side.setContentsMargins(16, 22, 16, 18)
-    side.setSpacing(6)
-    brand = QLabel("DRG SAVE EDITOR")
+    side.setContentsMargins(14, 22, 14, 18)
+    side.setSpacing(4)
+    brand = QLabel("DRG Save Editor")
     brand.setObjectName("brand")
-    sub = QLabel("Rock and Stone!")
-    sub.setObjectName("brandSub")
     side.addWidget(brand)
-    side.addWidget(sub)
-    side.addSpacing(22)
+    side.addSpacing(8)
+    side.addWidget(HazardStripe(6))
+    side.addSpacing(18)
 
     win.page_names = ["Classes", "Resources", "Season", "Overclocks", "Assignments"]
     win.nav_buttons = []
@@ -218,8 +217,8 @@ def build_main_window(focus_edit=QLineEdit):
     # ---- right side: top bar over the pages
     right = QWidget()
     right_layout = QVBoxLayout(right)
-    right_layout.setContentsMargins(30, 24, 22, 14)
-    right_layout.setSpacing(16)
+    right_layout.setContentsMargins(28, 22, 20, 12)
+    right_layout.setSpacing(14)
 
     top = QFrame()
     top.setObjectName("topbar")
@@ -234,7 +233,7 @@ def build_main_window(focus_edit=QLineEdit):
     title_row = QHBoxLayout()
     title_row.setSpacing(14)
     title_row.addWidget(win.page_title)
-    win.dirty_label = QLabel("●  Unsaved changes")
+    win.dirty_label = QLabel("Unsaved changes")
     win.dirty_label.setObjectName("dirty")
     win.dirty_label.setVisible(False)
     title_row.addWidget(win.dirty_label, 0, Qt.AlignBottom)
@@ -265,6 +264,7 @@ def build_main_window(focus_edit=QLineEdit):
     # the boxes that hold values to be saved, for noticing edits
     win.data_edits = [e for e in win.pages.findChildren(QLineEdit) if e.validator() is not None]
     win.data_combos = [win.driller_promo_box, win.engineer_promo_box, win.gunner_promo_box, win.scout_promo_box]
+    win.data_spins = [win.driller_promo_level, win.engineer_promo_level, win.gunner_promo_level, win.scout_promo_level]
 
     nav_group.idClicked.connect(win.show_page)
     win.nav_buttons[0].setChecked(True)
@@ -276,33 +276,78 @@ def build_main_window(focus_edit=QLineEdit):
 # ------------------------------------------------------------------ pages
 
 
+PROMO_TIERS = ["None", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Legendary"]
+LEGENDARY_TIER = len(PROMO_TIERS) - 1
+
+
+def _promotion_controls(key):
+    """a tier and a level within it: Bronze 1 to Diamond 3, then Legendary, which has no upper limit"""
+    tier = QComboBox()
+    tier.setObjectName(key + "_promo_box")
+    tier.addItems(PROMO_TIERS)
+    tier.setFixedWidth(118)
+    level = QSpinBox()
+    level.setObjectName(key + "_promo_level")
+    level.setFixedWidth(70)
+    level.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    level.setButtonSymbols(QSpinBox.NoButtons)  # typed like every other number here; the arrow keys and wheel work too
+
+    def sync(index):
+        if index == 0:  # no promotion, so no level to pick
+            level.setRange(0, 0)
+            level.setSpecialValueText("–")
+            level.setEnabled(False)
+        else:
+            level.setSpecialValueText("")
+            level.setEnabled(True)
+            level.setRange(1, 9999 if index == LEGENDARY_TIER else 3)
+
+    tier.currentIndexChanged.connect(sync)
+    sync(0)
+    return tier, level
+
+
 def _classes_page(win, layout, focus_edit):
     win.classes_group = Banner()
     win.classes_group.setText("Open a save file to see your rank")
     layout.addWidget(win.classes_group)
 
-    grid = QGridLayout()
-    grid.setHorizontalSpacing(18)
-    grid.setVerticalSpacing(18)
+    panel = Card("Classes")
+    grid = panel.body
+    grid.setColumnStretch(0, 0)
+    grid.setHorizontalSpacing(14)
+    grid.setVerticalSpacing(6)
+    for column, text, span in ((2, "Total XP", 1), (3, "Level", 1), (4, "Progress", 1), (5, "Promotion", 2)):
+        heading = QLabel(text)
+        heading.setObjectName("columnHeading")
+        grid.addWidget(heading, 0, column, 1, span)
+
     for i, name in enumerate(CLASSES):
+        row = i + 1
         key = name.lower()
-        card = Card(name, accent=CLASS_COLORS[name], pixmap=theme.class_pixmap(name, 44))
-        total = number_edit(focus_edit, key + "_xp")
-        level = number_edit(focus_edit, key + "_lvl_text", 90)
-        progress = number_edit(focus_edit, key + "_xp_2")
-        promo = QComboBox()
-        promo.setObjectName(key + "_promo_box")
-        promo.setFixedWidth(170)
-        for control in (total, level, progress, promo):
+        picture = QLabel()
+        pixmap = theme.class_pixmap(name, 40)
+        if pixmap is not None:
+            picture.setPixmap(pixmap)
+        picture.setFixedSize(44, 44)
+        picture.setStyleSheet("background: transparent;")
+        label = QLabel(name)
+        label.setObjectName("className")
+        label.setStyleSheet(f"color: {CLASS_COLORS[name]};")
+        total = number_edit(focus_edit, key + "_xp", 110)
+        level = number_edit(focus_edit, key + "_lvl_text", 56)
+        progress = number_edit(focus_edit, key + "_xp_2", 100)
+        tier, promo_level = _promotion_controls(key)
+        for control in (total, level, progress, tier, promo_level):
             setattr(win, control.objectName(), control)
-        card.add_row("Total XP", total)
-        card.add_row("Level", level)
-        card.add_row("Progress to next level", progress)
-        card.add_row("Promotion", promo)
-        grid.addWidget(card, i // 2, i % 2)
-    grid.setColumnStretch(0, 1)
-    grid.setColumnStretch(1, 1)
-    layout.addLayout(grid)
+        grid.addWidget(picture, row, 0)
+        grid.addWidget(label, row, 1)
+        for column, control in enumerate((total, level, progress, tier, promo_level), start=2):
+            grid.addWidget(control, row, column)
+    grid.setColumnStretch(1, 0)
+    grid.setColumnStretch(7, 1)
+    panel.setMaximumWidth(780)
+    layout.addWidget(panel)
 
     row = QHBoxLayout()
     row.addWidget(_plain_button(win.actionSet_All_Classes_to_25))
@@ -321,10 +366,11 @@ def _plain_button(act):
 
 def _resource_card(win, title, rows):
     card = Card(title)
+    card.setMaximumWidth(380)
     for name, label in rows:
         edit = number_edit(QLineEdit, name)
         setattr(win, name, edit)
-        card.add_row(label, edit)
+        card.add_row(label, edit, icon=theme.resource_pixmap(name))
     return card
 
 
@@ -336,19 +382,7 @@ def _resources_page(win, layout):
     grid.addWidget(_resource_card(win, "Miscellaneous", MISC), 0, 1)
     grid.addWidget(_resource_card(win, "Brewing", BREWING), 1, 0)
 
-    note = Card("Before you save")
-    text = QLabel(
-        "A backup of your save is written next to it (as .old) when you open it.\n\n"
-        "Resources you have never owned may not be in the save yet. Collect one in game first."
-    )
-    text.setObjectName("hint")
-    text.setWordWrap(True)
-    text.setAlignment(Qt.AlignTop | Qt.AlignLeft)
-    note.body.addWidget(text, 0, 0, 1, 2)
-    note.body.setRowStretch(1, 1)
-    grid.addWidget(note, 1, 1)
-    for column in (0, 1):
-        grid.setColumnStretch(column, 1)
+    grid.setColumnStretch(2, 1)  # the cards keep their width and sit to the left
     layout.addLayout(grid)
     layout.addStretch(1)
 
@@ -358,7 +392,7 @@ def _season_page(win, layout, focus_edit):
     win.season_picker = QComboBox()
     win.season_picker.setObjectName("season_picker")
     win.season_picker.setFixedWidth(170)
-    win.season_lvl_text = number_edit(focus_edit, "season_lvl_text", 90)
+    win.season_lvl_text = number_edit(focus_edit, "season_lvl_text", 56)
     win.season_xp = number_edit(focus_edit, "season_xp")
     win.scrip_text = number_edit(QLineEdit, "scrip_text")
     win.season_group.add_row("Season", win.season_picker)
@@ -366,11 +400,7 @@ def _season_page(win, layout, focus_edit):
     win.season_group.add_row("Progress to next level", win.season_xp)
     win.season_group.add_row("Scrip", win.scrip_text)
 
-    hint = QLabel("Each season keeps its own level and scrip. Changes to several seasons are all saved together.")
-    hint.setObjectName("hint")
-    hint.setWordWrap(True)
-    win.season_group.body.addWidget(hint, win.season_group._next_row, 0, 1, 2)
-
+    win.season_group.setMaximumWidth(380)
     row = QHBoxLayout()
     row.addWidget(win.season_group, 1)
     row.addStretch(1)
@@ -381,46 +411,27 @@ def _season_page(win, layout, focus_edit):
 def _welcome_page(win):
     page = QWidget()
     layout = QVBoxLayout(page)
-    layout.setAlignment(Qt.AlignCenter)
-    layout.setSpacing(18)
+    layout.setContentsMargins(0, 0, 12, 0)
 
-    portraits = QHBoxLayout()
-    portraits.setSpacing(14)
-    portraits.addStretch(1)
-    for name in CLASSES:
-        picture = QLabel()
-        pixmap = theme.class_pixmap(name, 72)
-        if pixmap is not None:
-            picture.setPixmap(pixmap)
-        picture.setStyleSheet("background: transparent;")
-        portraits.addWidget(picture)
-    portraits.addStretch(1)
-    layout.addLayout(portraits)
-
-    title = QLabel("Open a save file to get started")
-    title.setObjectName("welcomeTitle")
-    title.setAlignment(Qt.AlignCenter)
-    layout.addWidget(title)
-
-    hint = QLabel(
-        "Your save is the file ending in .sav in the game's SaveGames folder.\n"
-        "A backup (.old) is written next to it when you open it."
+    panel = Card("No save loaded")
+    panel.setMaximumWidth(520)
+    text = QLabel(
+        "Open your Deep Rock Galactic save, the .sav file in the game's SaveGames folder.\n"
+        "A backup is written next to it first."
     )
-    hint.setObjectName("hint")
-    hint.setAlignment(Qt.AlignCenter)
-    layout.addWidget(hint)
+    text.setObjectName("hint")
+    text.setWordWrap(True)
+    panel.body.addWidget(text, 0, 0)
 
     button = QToolButton()
     button.setDefaultAction(win.actionOpen_Save_File)
     button.setToolButtonStyle(Qt.ToolButtonTextOnly)
     button.setObjectName("primary")
     button.setCursor(Qt.PointingHandCursor)
-    button.setMinimumWidth(180)
-    row = QHBoxLayout()
-    row.addStretch(1)
-    row.addWidget(button)
-    row.addStretch(1)
-    layout.addLayout(row)
+    button.setFixedWidth(150)
+    panel.body.addWidget(button, 1, 0, Qt.AlignLeft)
+    layout.addWidget(panel, 0, Qt.AlignTop)
+    layout.addStretch(1)
     return page
 
 
