@@ -42,7 +42,10 @@ Some notes:
 - Changing XP values will update the other relevant fields when the focus changes (i.e., click on a different part of the program or another program entirely)
 - If you have promotions beyond Legendary 3 those promotions will be preserved as long as the drop-down is set to "Legendary 3+". If you don't have enough promotions for a specific dwarf and set them to "Legendary 3+" it will keep whatever the original value was.
 
+### Overclocks Tab
 ![overclocks](sshot.png)
+
+### Classes Tab
 ![classes](sshot_classes.png)
 
 ## Data sources
