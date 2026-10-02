@@ -1,5 +1,4 @@
-from PySide6.QtUiTools import QUiLoader
-from PySide6.QtCore import QFile, QIODevice, Qt, Slot
+from PySide6.QtCore import Qt, Slot
 from PySide6.QtWidgets import (
     QApplication,
     QFileDialog,
@@ -9,23 +8,23 @@ from PySide6.QtWidgets import (
     QMenu,
     QLineEdit,
 )
-from PySide6.QtGui import QColor, QCursor, QFocusEvent
+from PySide6.QtGui import QBrush, QColor, QCursor, QFocusEvent
+from contextlib import contextmanager
 from copy import deepcopy
 import sys
 import os
 import struct
-import re
 from pprint import pprint as pp
 import json
 import winreg
 import campaigns
 import schematics
 import seasons
-from campaign_dialog import CampaignDialog
-
+import theme
+import ui_main
 
 def data_path(name):
-    """data files (editor.ui, guids.json, ...) sit next to the exe when frozen, in the working directory otherwise"""
+    """data files (guids.json, cosmetics.json, ...) sit next to the exe when frozen, in the working directory otherwise"""
     if getattr(sys, "frozen", False):
         return os.path.join(os.path.dirname(sys.executable), name)
     return name
@@ -73,7 +72,7 @@ class TextEditFocusChecking(QLineEdit):
                     widget.season_lvl_text.setText("0")
                 elif value > 100:
                     widget.season_lvl_text.setText("100")
-                    widget.season_xp_.setText("0")
+                    widget.season_xp.setText("0")
         else:
             # decide/calculate how to update based on which box was changed
             if box.endswith("xp"):  # total xp box changed
@@ -232,35 +231,98 @@ def open_file():
 
     # print(f'opened: {file_name}')
 
-    # enable widgets that don't work without a save file present
-    widget.actionSave_changes.setEnabled(True)
-    widget.actionReset_to_original_values.setEnabled(True)
-    widget.combo_oc_filter.setEnabled(True)
+    show_save()
 
-    # initialize and populate the text fields
+
+def show_save():
+    """fills the whole window from save_data"""
     global stats
-    stats = init_values(save_data)
-    reset_values()
-    update_rank()
-
     global forged_ocs
     global unacquired_ocs
     global unforged_ocs
 
-    # print('before ocs')
-    # parse save file and categorize weapon overclocks
-    forged_ocs, unacquired_ocs, unforged_ocs = get_overclocks(save_data, guid_dict)
-    # print('after ocs')
+    season_cache.clear()
+    with filling():
+        # enable widgets that don't work without a save file present
+        widget.set_save_loaded(True)
 
-    # clear and initialize overclock tree view
-    widget.overclock_tree.clear()
-    overclock_tree = widget.overclock_tree.invisibleRootItem()
-    build_oc_tree(overclock_tree, guid_dict)
-    widget.overclock_tree.sortItems(0, Qt.SortOrder.AscendingOrder)
+        # initialize and populate the text fields
+        stats = init_values(save_data)
+        reset_values()
+        update_rank()
 
-    # populate list of unforged ocs
-    unforged_list = widget.unforged_list
-    populate_unforged_list(unforged_list, unforged_ocs)
+        # print('before ocs')
+        # parse save file and categorize weapon overclocks
+        forged_ocs, unacquired_ocs, unforged_ocs = get_overclocks(save_data, guid_dict)
+        # print('after ocs')
+
+        # clear and initialize overclock tree view
+        widget.overclock_tree.clear()
+        overclock_tree = widget.overclock_tree.invisibleRootItem()
+        build_oc_tree(overclock_tree, guid_dict)
+        widget.overclock_tree.sortItems(0, Qt.SortOrder.AscendingOrder)
+
+        # populate list of unforged ocs
+        unforged_list = widget.unforged_list
+        populate_unforged_list(unforged_list, unforged_ocs)
+        filter_overclocks()
+    mark_clean()
+
+
+CLASS_ABBREVIATIONS = {"Driller": "D", "Engineer": "E", "Gunner": "G", "Scout": "S"}
+CLASS_ORDER = list(CLASS_ABBREVIATIONS)
+
+
+def overclock_category(entry):
+    """the weapon an overclock is for or, for a cosmetic overclock, what kind it is in singular (Victory Pose)"""
+    if not entry.get("cosmetic"):
+        return entry["weapon"]
+    kind = entry["weapon"].replace("Cosmetic - ", "", 1)
+    return kind[:-1] if kind.endswith("s") else kind
+
+
+class UnforgedItem(QListWidgetItem):
+    """sorts weapon overclocks first, then cosmetic ones, each by class, category and name"""
+
+    def __init__(self, text, sort_key):
+        super().__init__(text)
+        self.sort_key = sort_key
+
+    def __lt__(self, other):
+        return self.sort_key < other.sort_key
+
+
+def unforged_item(guid, entry):
+    """a row of the unforged list: class initial, category, then the name, in the class's colour"""
+    if not isinstance(entry, dict):  # an overclock we have no data for
+        item = UnforgedItem(f"?  ·  Unknown overclock  ·  {guid[:8]}…", (2, 0, "", guid))
+        item.setForeground(QBrush(QColor(theme.COLORS["muted"])))
+        item.setToolTip(guid)
+    else:
+        category = overclock_category(entry)
+        name = entry["name"]
+        icon = theme.class_icon(entry["class"], 24)
+        # the class's portrait leads the row; without the image the class initial does
+        lead = "" if icon is not None else f"{CLASS_ABBREVIATIONS[entry['class']]}  ·  "
+        item = UnforgedItem(
+            f"{lead}{category}  ·  {name}",
+            (
+                1 if entry.get("cosmetic") else 0,
+                CLASS_ORDER.index(entry["class"]),
+                category.lower(),
+                name.lower(),
+            ),
+        )
+        if icon is not None:
+            item.setIcon(icon)
+        item.setForeground(QBrush(QColor(theme.CLASS_COLORS[entry["class"]])))
+        item.setToolTip(f"{entry['class']} · {category}: {name}\n{guid}")
+    item.setData(Qt.UserRole, guid)
+    return item
+
+
+def guid_of_list_item(item):
+    return item.data(Qt.UserRole)
 
 
 def unforged_label(guid, entry):
@@ -275,7 +337,8 @@ def populate_unforged_list(list_widget, unforged):
     # populates the list of acquired but unforged overclocks and cosmetics
     list_widget.clear()
     for k, v in unforged.items():
-        list_widget.addItem(QListWidgetItem(unforged_label(k, v)))
+        list_widget.addItem(unforged_item(k, v))
+    list_widget.sortItems()
 
 
 def update_season_data():
@@ -283,11 +346,65 @@ def update_season_data():
 
 
 def get_season_data(save_bytes):
-    season = seasons.read_season(save_bytes, season_guid)
-    if season is None:  # this save has no entry for the selected season
-        widget.season_group.setEnabled(False)
-        return {"xp": 0, "scrip": 0}
-    return season
+    """the selected season's values, or None when this save has no entry for it"""
+    return seasons.read_season(save_bytes, season_guid)
+
+
+def saved_season(guid):
+    """what the open save has for a season; read once, since this is asked for on every keystroke"""
+    if guid not in season_cache:
+        season_cache[guid] = seasons.read_season(save_data, guid)
+    return season_cache[guid]
+
+
+def season_changes():
+    """{season guid: values} for every season whose values differ from the save"""
+    changes = dict(season_edits)
+    if widget.season_xp.isEnabled():  # the season on screen
+        typed = season_values_on_screen()
+        if typed != saved_season(season_guid):
+            changes[season_guid] = typed
+        else:
+            changes.pop(season_guid, None)
+    return changes
+
+
+def season_values_on_screen():
+    return {
+        "xp": int(widget.season_xp.text() or 0)
+        + xp_per_season_level * int(widget.season_lvl_text.text() or 0),
+        "scrip": int(widget.scrip_text.text() or 0),
+    }
+
+
+def show_season(values):
+    boxes = (widget.season_xp, widget.season_lvl_text, widget.scrip_text)
+    for box in boxes:
+        box.setEnabled(values is not None)
+    if values is None:  # nothing to edit for a season the save has no entry for
+        for box in boxes:
+            box.setText("0")
+        return
+    widget.season_xp.setText(str(values["xp"] % xp_per_season_level))
+    widget.season_lvl_text.setText(str(values["xp"] // xp_per_season_level))
+    widget.scrip_text.setText(str(values["scrip"]))
+
+
+@Slot()
+def change_season(index):
+    global season_guid
+    new_guid = widget.season_picker.itemData(index)
+    if new_guid is None or new_guid == season_guid:
+        return
+    if save_data:
+        # keep what was typed for the season being left, if it differs from the save
+        season_edits.clear()
+        season_edits.update(season_changes())
+        season_guid = new_guid
+        show_season(season_edits.get(new_guid) or saved_season(new_guid))
+        update_dirty()
+    else:
+        season_guid = new_guid
 
 
 def get_resources(save_bytes):
@@ -423,18 +540,32 @@ def build_oc_dict(guid_dict):
     return overclocks
 
 
+class OcItem(QTreeWidgetItem):
+    """sorts by name, ignoring case, with the cosmetic groups after the weapons"""
+
+    def __lt__(self, other):
+        tree = self.treeWidget()
+        if tree is not None and tree.sortColumn() != 0:
+            return super().__lt__(other)
+
+        def key(item):
+            return (item.text(0).startswith("Cosmetic - "), item.text(0).lower())
+
+        return key(self) < key(other)
+
+
 def build_oc_tree(tree, source_dict):
     oc_dict = build_oc_dict(source_dict)
-    # entry = QTreeWidgetItem(None)
+    # entry = OcItem(None)
     for char, weapons in oc_dict.items():
         # dwarves[dwarf] = QTreeWidgetItem(tree)
-        char_entry = QTreeWidgetItem(None)
+        char_entry = OcItem(None)
         char_entry.setText(0, char)
         for weapon, oc_names in weapons.items():
-            weapon_entry = QTreeWidgetItem(None)
+            weapon_entry = OcItem(None)
             weapon_entry.setText(0, weapon)
             for name, uuid in oc_names.items():
-                oc_entry = QTreeWidgetItem(None)
+                oc_entry = OcItem(None)
                 oc_entry.setText(0, name)
                 oc_entry.setText(1, source_dict[uuid]["status"])
                 oc_entry.setText(2, uuid)
@@ -528,27 +659,103 @@ def get_overclocks(save_bytes, guid_source):
     return (forged, guids, unforged)
 
 
-@Slot()
-def filter_overclocks():
-    item_filter = widget.combo_oc_filter.currentText()
-    # forged_ocs, unacquired_ocs, unforged_ocs = get_overclocks(save_data, guid_dict)
-    # print(item_filter)
-    tree = widget.overclock_tree
-    tree_root = tree.invisibleRootItem()
+STATUSES = ("Forged", "Unforged", "Unacquired")
 
-    for i in range(tree_root.childCount()):
-        # print(tree_root.child(i).text(0))
-        dwarf = tree_root.child(i)
-        for j in range(dwarf.childCount()):
-            weapon = dwarf.child(j)
-            # print(f'\t{weapon.text(0)}')
-            for k in range(weapon.childCount()):
-                oc = weapon.child(k)
-                # print(f'\t\t{oc.text(0)}')
-                if oc.text(1) == item_filter or item_filter == "All":
-                    oc.setHidden(False)
-                else:
-                    oc.setHidden(True)
+
+def status_summary(counts):
+    total = sum(counts.values())
+    text = f'{counts["Forged"]}/{total} forged'
+    if counts["Unforged"]:
+        text += f' · {counts["Unforged"]} unforged'
+    return text
+
+
+def filter_overclocks(*_):
+    """applies the search and the class, kind and status filters, and refreshes status colours and counts"""
+    status_filter = widget.combo_oc_filter.currentText() or "All"
+    class_filter = widget.oc_class_filter.currentText()
+    kind_filter = widget.oc_kind_filter.currentText()
+    query = widget.oc_search.text().strip().lower()
+    muted = QBrush(QColor(theme.COLORS["muted"]))
+
+    totals = dict.fromkeys(STATUSES, 0)
+    shown = 0
+    root = widget.overclock_tree.invisibleRootItem()
+    for i in range(root.childCount()):
+        class_item = root.child(i)
+        class_counts = dict.fromkeys(STATUSES, 0)
+        class_shown = 0
+        for j in range(class_item.childCount()):
+            group = class_item.child(j)
+            group_counts = dict.fromkeys(STATUSES, 0)
+            group_shown = 0
+            for k in range(group.childCount()):
+                leaf = group.child(k)
+                guid = leaf.text(2)
+                entry = guid_dict.get(guid, {})
+                status = entry.get("status", leaf.text(1))
+                leaf.setText(1, status)
+                leaf.setForeground(1, QBrush(QColor(theme.STATUS_COLORS[status])))
+                leaf.setForeground(2, muted)
+                group_counts[status] += 1
+
+                visible = (
+                    (status_filter == "All" or status == status_filter)
+                    and (class_filter == "All classes" or class_item.text(0) == class_filter)
+                    and (
+                        kind_filter.startswith("All")
+                        or (kind_filter == "Cosmetic overclocks") == bool(entry.get("cosmetic"))
+                    )
+                    and (
+                        not query
+                        or query in f"{class_item.text(0)} {group.text(0)} {leaf.text(0)} {guid}".lower()
+                    )
+                )
+                leaf.setHidden(not visible)
+                group_shown += visible
+
+            group.setText(1, status_summary(group_counts))
+            group.setForeground(1, muted)
+            group.setHidden(group_shown == 0)
+            if query and group_shown:
+                group.setExpanded(True)
+            class_shown += group_shown
+            for status in STATUSES:
+                class_counts[status] += group_counts[status]
+
+        class_item.setText(1, status_summary(class_counts))
+        class_item.setForeground(1, muted)
+        class_item.setHidden(class_shown == 0)
+        if query and class_shown:
+            class_item.setExpanded(True)
+        shown += class_shown
+        for status in STATUSES:
+            totals[status] += class_counts[status]
+
+    widget.oc_counts.setText(
+        f'{shown} of {sum(totals.values())} shown · {totals["Forged"]} forged · '
+        f'{totals["Unforged"]} unforged · {totals["Unacquired"]} unacquired'
+    )
+
+
+def selected_leaves(tree):
+    """the overclocks that are selected, counting a selected weapon, cosmetic group or class as all of its shown items"""
+    leaves, seen = [], set()
+
+    def collect(item):
+        if item.isHidden():
+            return
+        if item.childCount() == 0:
+            if item.text(2) and item.text(2) not in seen:
+                seen.add(item.text(2))
+                leaves.append(item)
+            return
+        for n in range(item.childCount()):
+            collect(item.child(n))
+
+    for item in tree.selectedItems():
+        collect(item)
+    return leaves
 
 
 @Slot()
@@ -567,19 +774,17 @@ def oc_ctx_menu(pos):
 
 @Slot()
 def add_cores():
-    # print("add cores")
     global unforged_ocs
     global unacquired_ocs
-    tree = widget.overclock_tree
-    selected = tree.selectedItems()
     items_to_add = list()
-    for i in selected:
-        if i.text(1) == "Unacquired":
-            items_to_add.append(unforged_label(i.text(2), guid_dict[i.text(2)]))
-            guid_dict[i.text(2)]["status"] = "Unforged"
-            unforged_ocs.update({i.text(2): guid_dict[i.text(2)]})
-            del unacquired_ocs[i.text(2)]
-            guid_dict[i.text(2)]["status"] = "Unforged"
+    for leaf in selected_leaves(widget.overclock_tree):
+        guid = leaf.text(2)
+        if guid_dict[guid]["status"] != "Unacquired":
+            continue
+        guid_dict[guid]["status"] = "Unforged"
+        unforged_ocs[guid] = guid_dict[guid]
+        unacquired_ocs.pop(guid, None)
+        items_to_add.append(unforged_item(guid, guid_dict[guid]))
 
     core_list = widget.unforged_list
     for item in items_to_add:
@@ -587,6 +792,52 @@ def add_cores():
 
     core_list.sortItems()
     filter_overclocks()
+    widget.statusBar().showMessage(
+        f"Added {len(items_to_add)} to the unforged list. Save to write them into your save."
+        if items_to_add
+        else "Nothing to add: select unacquired overclocks first.",
+        6000,
+    )
+    update_dirty()
+
+
+@contextmanager
+def filling():
+    """while the window is being filled from a save the boxes change, but not because the user edited anything"""
+    global loading
+    loading += 1
+    try:
+        yield
+    finally:
+        loading -= 1
+
+
+def snapshot():
+    """everything that would be written, to tell whether anything differs from the last open or save"""
+    try:
+        values = get_values()
+        values.pop("season")  # compared per season below
+        return (
+            json.dumps(values, sort_keys=True),
+            tuple(sorted(unforged_ocs)),
+            json.dumps(campaign_state, sort_keys=True),
+            json.dumps(season_changes(), sort_keys=True),
+        )
+    except Exception:  # a box is empty or half typed
+        return None
+
+
+def update_dirty(*_):
+    if loading or not file_name:
+        return
+    current = snapshot()
+    widget.set_dirty(current is None or current != saved_snapshot)
+
+
+def mark_clean():
+    global saved_snapshot
+    saved_snapshot = snapshot()
+    widget.set_dirty(False)
 
 
 @Slot()
@@ -599,13 +850,23 @@ def save_changes():
     save_file = make_save_file(file_name, changes)
     # the acquired-but-unforged overclocks and cosmetics, as edited in the Overclocks panel
     save_file = schematics.apply_unforged(save_file, list(unforged_ocs))
-    save_file = seasons.apply_season(
-        save_file, season_guid, changes["season"]["xp"], changes["season"]["scrip"]
-    )
+    # the season on screen, plus any other season edited before switching away from it
+    for guid, values in {**season_edits, season_guid: changes["season"]}.items():
+        save_file = seasons.apply_season(save_file, guid, values["xp"], values["scrip"])
+    season_cache.clear()
     if campaigns_dirty and campaign_state is not None:
         save_file = campaigns.apply_state(save_file, campaign_state)
     with open(file_name, "wb") as f:
         f.write(save_file)
+
+    # what was just written is now the save: Reset goes back to it and nothing is unsaved
+    global save_data
+    global stats
+    save_data = save_file
+    season_cache.clear()
+    stats = init_values(save_data)
+    reset_values()
+    widget.statusBar().showMessage("Saved.", 5000)
 
 
 def make_save_file(file_path, change_data):
@@ -783,6 +1044,13 @@ def set_all_25():
 
 @Slot()
 def reset_values():
+    """the Reset action: back to what the save had"""
+    with filling():
+        restore_values()
+    mark_clean()
+
+
+def restore_values():
     global stats
     global unforged_ocs
     global unacquired_ocs
@@ -864,10 +1132,9 @@ def reset_values():
     update_rank()
 
     # reset season data
-    season_total_xp = stats["season"]["xp"]
-    widget.season_xp.setText(str(season_total_xp % xp_per_season_level))
-    widget.season_lvl_text.setText(str(season_total_xp // xp_per_season_level))
-    widget.scrip_text.setText(str(stats["season"]["scrip"]))
+    season_edits.clear()
+    stats["season"] = get_season_data(save_data)
+    show_season(stats["season"])
 
     load_campaign_state()
 
@@ -875,29 +1142,26 @@ def reset_values():
 def load_campaign_state():
     # campaign edits are kept as a small state dict and only written into the save on save
     global campaign_state
+    global campaign_baseline
     global campaigns_dirty
     try:
         campaign_state = campaigns.read_state(save_data)
     except Exception as e:  # unreadable or very old save: just leave campaigns alone
         print(f"campaigns unavailable: {e}")
         campaign_state = None
+    campaign_baseline = deepcopy(campaign_state)
     campaigns_dirty = False
-    widget.action_edit_campaigns.setEnabled(campaign_state is not None)
+    widget.campaign_page.load(campaign_state)
+    widget.set_assignments_available(campaign_state is not None)
 
 
-@Slot()
-def edit_campaigns():
+@Slot(dict)
+def campaigns_changed(new_state):
     global campaign_state
     global campaigns_dirty
-    dialog = CampaignDialog(campaign_state, campaign_catalog, widget)
-    if dialog.exec():
-        new_state = dialog.result_state()
-        if new_state != campaign_state:
-            campaign_state = new_state
-            campaigns_dirty = True
-            widget.statusBar().showMessage(
-                "Assignment changes will be written when you save.", 8000
-            )
+    campaign_state = new_state
+    campaigns_dirty = new_state != campaign_baseline
+    update_dirty()
 
 
 @Slot()
@@ -1089,11 +1353,7 @@ def get_values():
     ns["misc"]["data"] = int(widget.data_text.text())
     ns["misc"]["phazyonite"] = int(widget.phazy_text.text())
 
-    ns["season"] = {
-        "xp": int(widget.season_xp.text())
-        + (xp_per_season_level * int(widget.season_lvl_text.text())),
-        "scrip": int(widget.scrip_text.text()),
-    }
+    ns["season"] = season_values_on_screen()
 
     return ns
 
@@ -1103,24 +1363,14 @@ def remove_selected_ocs():
     global unforged_ocs
     global unacquired_ocs
     global file_name
-    global guid_re
     list_items = widget.unforged_list.selectedItems()
     items_to_remove = list()
     for i in list_items:
-        items_to_remove.append(guid_of_list_item(i.text()))
+        items_to_remove.append(guid_of_list_item(i))
         item = widget.unforged_list.row(i)
         widget.unforged_list.takeItem(item)
 
     remove_ocs(items_to_remove)
-
-
-def guid_of_list_item(text):
-    """
-    guid of an entry in the unforged list: "Weapon: Name (GUID)" for overclocks,
-    "Cosmetic: GUID" for cosmetics, which have no name or parentheses
-    """
-    match = guid_re.search(text) or re.search(r"([0-9A-Fa-f]{32})\s*$", text)
-    return match.group(1).upper()
 
 
 def remove_ocs(oc_list):
@@ -1134,22 +1384,22 @@ def remove_ocs(oc_list):
             oc["status"] = "Unacquired"
             guid_dict[i]["status"] = "Unacquired"
             unacquired_ocs[i] = oc
-        # cosmetics are stored as the string "Cosmetic" and aren't in the overclock data,
+        # overclocks we have no data for are stored as the string "Cosmetic" and aren't in the overclock data,
         # so they're just dropped from the unforged list
 
     filter_overclocks()
+    update_dirty()
 
 
 @Slot()
 def remove_all_ocs():
     global unforged_ocs
-    global guid_re
     # unforged_ocs = dict()
     items_to_remove = list()
     unforged_list = widget.unforged_list
     for i in range(unforged_list.count()):
         item = unforged_list.item(i)
-        items_to_remove.append(guid_of_list_item(item.text()))
+        items_to_remove.append(guid_of_list_item(item))
 
     remove_ocs(items_to_remove)
     unforged_list.clear()
@@ -1298,10 +1548,14 @@ file_name = ""
 save_data = b""
 xp_per_season_level = 5000
 season_guid = seasons.SEASON_GUIDS[seasons.LATEST_SEASON]
+season_edits = dict()  # season guid -> values typed for a season that was switched away from
+season_cache = dict()  # season guid -> the values the open save has for it
+loading = 0  # above zero while the window is being filled from a save
+saved_snapshot = None  # what snapshot() returned at the last open or save
+campaign_baseline = None  # the assignments as the save has them
 campaign_state = None
 campaign_catalog = dict()
 campaigns_dirty = False
-guid_re = re.compile(r".*\(([0-9A-F]*)\)")
 resource_guids = {
     "yeast": "078548B93232C04085F892E084A74100",
     "starch": "72312204E287BC41815540A0CF881280",
@@ -1319,15 +1573,23 @@ resource_guids = {
     "phazyonite": "67668AAE828FDB48A9111E1B912DBFA4",
 }
 
-if __name__ == "__main__":
-    # print(os.getcwd())
-    # specify and open the UI
-    ui_file_name = data_path("editor.ui")
-    app = QApplication(sys.argv)
-    ui_file = QFile(ui_file_name)
-    if not ui_file.open(QIODevice.ReadOnly):
-        print("Cannot open {}: {}".format(ui_file_name, ui_file.errorString()))
-        sys.exit(-1)
+def create_window():
+    """builds the window, loads the reference data and connects everything up"""
+    global widget, guid_dict, campaign_catalog, steam_path
+    global file_name, save_data, season_guid, campaign_state, campaigns_dirty
+    global loading, saved_snapshot, campaign_baseline
+
+    # a new window starts without a save and on the newest season
+    file_name = ""
+    save_data = b""
+    season_guid = seasons.SEASON_GUIDS[seasons.LATEST_SEASON]
+    season_edits.clear()
+    campaign_state = None
+    campaigns_dirty = False
+    campaign_baseline = None
+    loading = 0
+    saved_snapshot = None
+    season_cache.clear()
 
     # load reference data
     with open(data_path("guids.json"), "r") as g:
@@ -1347,32 +1609,11 @@ if __name__ == "__main__":
     except:
         steam_path = "."
 
-    # load the UI and do a basic check
-    loader = QUiLoader()
-    loader.registerCustomWidget(TextEditFocusChecking)
-    widget = loader.load(ui_file, None)
-    ui_file.close()
-    if not widget:
-        print(loader.errorString())
-        sys.exit(-1)
-
-    # these two sit on the group box's top border; Qt 6's Windows style leaves them transparent,
-    # so the border line would run through them
-    widget.combo_oc_filter.setAutoFillBackground(True)
-    widget.add_cores_button.setAutoFillBackground(True)
-
-    # connect file opening function to menu item
-    widget.actionOpen_Save_File.triggered.connect(open_file)
-
-    # campaign editor lives in its own dialog, opened from its own menu
+    widget = ui_main.build_main_window(TextEditFocusChecking)
     campaign_catalog = campaigns.load_catalog(data_path("campaigns.json"))
-    campaign_menu = widget.menubar.addMenu("Assignments")
-    widget.action_edit_campaigns = campaign_menu.addAction("Edit assignments...")
-    widget.action_edit_campaigns.setEnabled(False)
-    widget.action_edit_campaigns.triggered.connect(edit_campaigns)
 
     # set column names for overclock treeview
-    widget.overclock_tree.setHeaderLabels(["Overclock", "Status", "GUID"])
+    widget.overclock_tree.setHeaderLabels(["Name", "Status", "GUID"])
 
     # populate the promotion drop downs
     promo_boxes = [
@@ -1385,21 +1626,29 @@ if __name__ == "__main__":
         for j in promo_ranks:
             i.addItem(j)
 
-    # for k,v in season_guids.items():
-    #     widget.season_picker.addItem(f'Season {v}')
+    # one entry per season; the newest is selected
+    for number, guid in season_guids.items():
+        current = " (current)" if number == seasons.LATEST_SEASON else ""
+        widget.season_picker.addItem(f"Season {number}{current}", guid)
+    widget.season_picker.setCurrentIndex(widget.season_picker.findData(season_guid))
 
-    # populate the filter drop down for overclocks
+    # populate the status filter for overclocks and cosmetics
     sort_labels = ["All", "Unforged", "Forged", "Unacquired"]
     for i in sort_labels:
         widget.combo_oc_filter.addItem(i)
 
-    # connect functions to buttons and menu items
+    # connect functions to buttons and actions
+    widget.actionOpen_Save_File.triggered.connect(open_file)
     widget.actionSave_changes.triggered.connect(save_changes)
     widget.actionSet_All_Classes_to_25.triggered.connect(set_all_25)
     widget.actionAdd_overclock_crafting_materials.triggered.connect(add_crafting_mats)
     widget.actionReset_to_original_values.triggered.connect(reset_values)
+    widget.campaign_page.set_catalog(campaign_catalog)
+    widget.campaign_page.changed.connect(campaigns_changed)
     widget.combo_oc_filter.currentTextChanged.connect(filter_overclocks)
-    # widget.overclock_tree.customContextMenuRequested.connect(oc_ctx_menu)
+    widget.oc_class_filter.currentTextChanged.connect(filter_overclocks)
+    widget.oc_kind_filter.currentTextChanged.connect(filter_overclocks)
+    widget.oc_search.textChanged.connect(filter_overclocks)
     widget.add_cores_button.clicked.connect(add_cores)
     widget.remove_all_ocs.clicked.connect(remove_all_ocs)
     widget.remove_selected_ocs.clicked.connect(remove_selected_ocs)
@@ -1407,8 +1656,19 @@ if __name__ == "__main__":
     widget.engineer_promo_box.currentIndexChanged.connect(update_rank)
     widget.gunner_promo_box.currentIndexChanged.connect(update_rank)
     widget.scout_promo_box.currentIndexChanged.connect(update_rank)
+    widget.season_picker.currentIndexChanged.connect(change_season)
 
-    # actually display the thing
+    # anything typed or picked in the value boxes means unsaved changes (unless it is back to what the save had)
+    for edit in widget.data_edits:
+        edit.textChanged.connect(update_dirty)
+    for combo in widget.data_combos:
+        combo.currentIndexChanged.connect(update_dirty)
+    return widget
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    theme.apply(app)
+    create_window()
     widget.show()
-    exit_code = app.exec()
-    sys.exit(exit_code)
+    sys.exit(app.exec())
