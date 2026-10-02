@@ -1,4 +1,6 @@
 """Promotions are picked as a tier and a level within it; Legendary has no upper limit."""
+import gvas
+import player
 import pytest
 import seasons
 
@@ -62,7 +64,7 @@ def test_a_promotion_beyond_legendary_3_is_saved_as_picked(editor):
     window.gunner_promo_level.setValue(25)
     assert window.actionSave_changes.isEnabled()
     main.save_changes()
-    assert main.get_xp(save.read_bytes())["gunner"]["promo"] == 15 + 25
+    assert player.read(gvas.loads(save.read_bytes()))["xp"]["gunner"]["promo"] == 15 + 25
     assert main.promo_count("gunner") == 40  # and it reads back the same
 
 

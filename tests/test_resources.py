@@ -1,4 +1,6 @@
 """The Resources page: icons on every row, Phazyonite with the minerals, no Data Cells box."""
+import gvas
+import player
 import theme
 import ui_main
 from PySide6.QtWidgets import QLabel
@@ -30,13 +32,13 @@ def test_data_cells_cannot_be_edited(editor):
 
 def test_saving_leaves_the_data_cells_as_they_were(editor):
     main, window, save = editor
-    before = main.get_resources(save.read_bytes())
+    before = player.read(gvas.loads(save.read_bytes()))
     window.bismor_text.setText("4321")
     main.save_changes()
-    after = main.get_resources(save.read_bytes())
-    assert after["data"] == before["data"]
-    assert after["bismor"] == 4321
-    assert main.stats["misc"]["data"] == before["data"]
+    after = player.read(gvas.loads(save.read_bytes()))
+    assert after["misc"]["data"] == before["misc"]["data"]
+    assert after["minerals"]["bismor"] == 4321
+    assert main.stats["misc"]["data"] == before["misc"]["data"]
 
 
 def test_the_page_shows_a_picture_next_to_each_resource(editor):
