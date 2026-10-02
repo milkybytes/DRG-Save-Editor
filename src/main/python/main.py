@@ -1,5 +1,6 @@
 from PySide6.QtCore import Qt, Slot
 from PySide6.QtWidgets import (
+    QMessageBox,
     QApplication,
     QFileDialog,
     QPlainTextEdit,
@@ -18,6 +19,8 @@ from pprint import pprint as pp
 import json
 import winreg
 import campaigns
+import gvas
+import player
 import schematics
 import seasons
 import theme
@@ -230,9 +233,22 @@ def open_file():
         file_name = previous_file_name
         return
 
-    widget.setWindowTitle(f"DRG Save Editor - {file_name}")  # window-dressing
     with open(file_name, "rb") as f:
-        save_data = f.read()
+        data = f.read()
+    try:
+        gvas.loads(data)
+    except Exception as e:
+        QMessageBox.critical(
+            widget,
+            "Can't open this file",
+            f"{os.path.basename(file_name)} doesn't look like a Deep Rock Galactic save, or is from a version this "
+            f"editor can't read.\n\n{e}",
+        )
+        file_name = previous_file_name  # whatever was open stays open, and no backup is written for this file
+        return
+
+    widget.setWindowTitle(f"DRG Save Editor - {file_name}")  # window-dressing
+    save_data = data
 
     # make a backup of the save file in case of weirdness or bugs
     with open(f"{file_name}.old", "wb") as backup:
@@ -418,85 +434,6 @@ def change_season(index):
         season_guid = new_guid
 
 
-def get_resources(save_bytes):
-    # extracts the resource counts from the save file
-    # print('getting resources')
-    # resource GUIDs
-    global resource_guids
-    resources = deepcopy(resource_guids)
-    guid_length = 16  # length of GUIDs in bytes
-    res_marker = (
-        b"OwnedResources"  # marks the beginning of where resource values can be found
-    )
-    res_pos = save_bytes.find(res_marker)
-    # print("getting resources")
-    for k, v in resources.items():  # iterate through resource list
-        # print(f"key: {k}, value: {v}")
-        marker = bytes.fromhex(v)
-        pos = (
-            save_bytes.find(marker, res_pos) + guid_length
-        )  # search for the matching GUID
-        end_pos = pos + 4  # offset for the actual value
-        # extract and unpack the value
-        temp = save_bytes[pos:end_pos]
-        unp = struct.unpack("f", temp)
-        resources[k] = int(unp[0])  # save resource count
-
-    # pp(resources)  # pretty printing for some reason
-    return resources
-
-
-def get_xp(save_bytes):
-    # print('getting xp')
-    en_marker = b"\x85\xEF\x62\x6C\x65\xF1\x02\x4A\x8D\xFE\xB5\xD0\xF3\x90\x9D\x2E\x03\x00\x00\x00\x58\x50"
-    sc_marker = b"\x30\xD8\xEA\x17\xD8\xFB\xBA\x4C\x95\x30\x6D\xE9\x65\x5C\x2F\x8C\x03\x00\x00\x00\x58\x50"
-    dr_marker = b"\x9E\xDD\x56\xF1\xEE\xBC\xC5\x48\x8D\x5B\x5E\x5B\x80\xB6\x2D\xB4\x03\x00\x00\x00\x58\x50"
-    gu_marker = b"\xAE\x56\xE1\x80\xFE\xC0\xC4\x4D\x96\xFA\x29\xC2\x83\x66\xB9\x7B\x03\x00\x00\x00\x58\x50"
-
-    # start_offset = 0
-    xp_offset = 48
-    eng_xp_pos = save_bytes.find(en_marker) + xp_offset
-    scout_xp_pos = save_bytes.find(sc_marker) + xp_offset
-    drill_xp_pos = save_bytes.find(dr_marker) + xp_offset
-    gun_xp_pos = save_bytes.find(gu_marker) + xp_offset
-
-    eng_xp = struct.unpack("i", save_bytes[eng_xp_pos : eng_xp_pos + 4])[0]
-    scout_xp = struct.unpack("i", save_bytes[scout_xp_pos : scout_xp_pos + 4])[0]
-    drill_xp = struct.unpack("i", save_bytes[drill_xp_pos : drill_xp_pos + 4])[0]
-    gun_xp = struct.unpack("i", save_bytes[gun_xp_pos : gun_xp_pos + 4])[0]
-
-    num_promo_offset = 108
-    eng_num_promo = struct.unpack(
-        "i",
-        save_bytes[eng_xp_pos + num_promo_offset : eng_xp_pos + num_promo_offset + 4],
-    )[0]
-    scout_num_promo = struct.unpack(
-        "i",
-        save_bytes[
-            scout_xp_pos + num_promo_offset : scout_xp_pos + num_promo_offset + 4
-        ],
-    )[0]
-    drill_num_promo = struct.unpack(
-        "i",
-        save_bytes[
-            drill_xp_pos + num_promo_offset : drill_xp_pos + num_promo_offset + 4
-        ],
-    )[0]
-    gun_num_promo = struct.unpack(
-        "i",
-        save_bytes[gun_xp_pos + num_promo_offset : gun_xp_pos + num_promo_offset + 4],
-    )[0]
-
-    xp_dict = {
-        "engineer": {"xp": eng_xp, "promo": eng_num_promo},
-        "scout": {"xp": scout_xp, "promo": scout_num_promo},
-        "driller": {"xp": drill_xp, "promo": drill_num_promo},
-        "gunner": {"xp": gun_xp, "promo": gun_num_promo},
-    }
-    # pp(xp_dict)
-    return xp_dict
-
-
 def xp_total_to_level(xp):
     for i in xp_table:
         if xp < i:
@@ -504,27 +441,6 @@ def xp_total_to_level(xp):
             remainder = xp - xp_table[level - 1]
             return (level, remainder)
     return (25, 0)
-
-
-def get_credits(save_bytes):
-    marker = b"Credits"
-    offset = 33
-    pos = save_bytes.find(marker) + offset
-    money = struct.unpack("i", save_bytes[pos : pos + 4])[0]
-
-    return money
-
-
-def get_perk_points(save_bytes):
-    marker = b"PerkPoints"
-    offset = 36
-    if save_bytes.find(marker) == -1:
-        perk_points = 0
-    else:
-        pos = save_bytes.find(marker) + offset
-        perk_points = struct.unpack("i", save_bytes[pos : pos + 4])[0]
-
-    return perk_points
 
 
 def build_oc_dict(guid_dict):
@@ -881,168 +797,9 @@ def save_changes():
 
 
 def make_save_file(file_path, change_data):
+    """the save at file_path with the values from get_values() written into it"""
     with open(file_path, "rb") as f:
-        save_data = f.read()
-
-    new_values = change_data
-    global resource_guids
-    global season_guid
-    # write resources
-    resource_bytes = list()
-    res_guids = deepcopy(resource_guids)
-    resources = {
-        "yeast": new_values["brewing"]["yeast"],
-        "starch": new_values["brewing"]["starch"],
-        "barley": new_values["brewing"]["barley"],
-        "bismor": new_values["minerals"]["bismor"],
-        "enor": new_values["minerals"]["enor"],
-        "malt": new_values["brewing"]["malt"],
-        "umanite": new_values["minerals"]["umanite"],
-        "jadiz": new_values["minerals"]["jadiz"],
-        "croppa": new_values["minerals"]["croppa"],
-        "magnite": new_values["minerals"]["magnite"],
-        "error": new_values["misc"]["error"],
-        "cores": new_values["misc"]["cores"],
-        "data": new_values["misc"]["data"],
-        "phazyonite": new_values["misc"]["phazyonite"],
-    }
-
-    res_marker = b"OwnedResources"
-    res_pos = save_data.find(res_marker) + 85
-    res_length = struct.unpack("i", save_data[res_pos - 4 : res_pos])[0] * 20
-    res_bytes = save_data[res_pos : res_pos + res_length]
-
-    for k, v in resources.items():
-        if res_bytes.find(bytes.fromhex(res_guids[k])) > -1:
-            pos = res_bytes.find(bytes.fromhex(res_guids[k]))
-            res_bytes = (
-                res_bytes[: pos + 16] + struct.pack("f", v) + res_bytes[pos + 20 :]
-            )
-            # print(
-            #     f'res: {k}, pos: {pos}, guid: {res_guids[k]}, val: {v}, v bytes: {struct.pack("f", v)}'
-            # )
-
-    # print(res_bytes.hex().upper())
-
-    save_data = save_data[:res_pos] + res_bytes + save_data[res_pos + res_length :]
-
-    # write credits
-    cred_marker = b"Credits"
-    cred_pos = save_data.find(cred_marker) + 33
-    cred_bytes = struct.pack("i", new_values["misc"]["credits"])
-    save_data = save_data[:cred_pos] + cred_bytes + save_data[cred_pos + 4 :]
-
-    # write perk points
-    if new_values["misc"]["perks"] > 0:
-        perks_marker = b"PerkPoints"
-        perks_bytes = struct.pack("i", new_values["misc"]["perks"])
-        if save_data.find(perks_marker) != -1:
-            perks_pos = save_data.find(perks_marker) + 36
-            save_data = save_data[:perks_pos] + perks_bytes + save_data[perks_pos + 4 :]
-        else:
-            perks_entry = (
-                b"\x0B\x00\x00\x00\x50\x65\x72\x6B\x50\x6F\x69\x6E\x74\x73\x00\x0C\x00\x00\x00\x49\x6E\x74\x50\x72\x6F\x70\x65\x72\x74\x79\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00"
-                + perks_bytes
-            )
-            perks_pos = save_data.find(
-                b"\x11\x00\x00\x00\x55\x6E\x4C\x6F\x63\x6B\x65\x64\x4D\x69\x73\x73\x69\x6F\x6E\x73\x00\x0E"
-            )
-            save_data = (
-                save_data[:perks_pos] + perks_entry + save_data[perks_pos:]
-            )  # inserting data, not overwriting
-    # print(f'2. {len(save_data)}')
-    # write XP
-    en_marker = b"\x85\xEF\x62\x6C\x65\xF1\x02\x4A\x8D\xFE\xB5\xD0\xF3\x90\x9D\x2E\x03\x00\x00\x00\x58\x50"
-    sc_marker = b"\x30\xD8\xEA\x17\xD8\xFB\xBA\x4C\x95\x30\x6D\xE9\x65\x5C\x2F\x8C\x03\x00\x00\x00\x58\x50"
-    dr_marker = b"\x9E\xDD\x56\xF1\xEE\xBC\xC5\x48\x8D\x5B\x5E\x5B\x80\xB6\x2D\xB4\x03\x00\x00\x00\x58\x50"
-    gu_marker = b"\xAE\x56\xE1\x80\xFE\xC0\xC4\x4D\x96\xFA\x29\xC2\x83\x66\xB9\x7B\x03\x00\x00\x00\x58\x50"
-    offset = 48
-    eng_xp_pos = save_data.find(en_marker) + offset
-    scout_xp_pos = save_data.find(sc_marker) + offset
-    drill_xp_pos = save_data.find(dr_marker) + offset
-    gun_xp_pos = save_data.find(gu_marker) + offset
-
-    eng_xp_bytes = struct.pack("i", new_values["xp"]["engineer"]["xp"])
-    scout_xp_bytes = struct.pack("i", new_values["xp"]["scout"]["xp"])
-    drill_xp_bytes = struct.pack("i", new_values["xp"]["driller"]["xp"])
-    gun_xp_bytes = struct.pack("i", new_values["xp"]["gunner"]["xp"])
-
-    promo_offset = 108
-    levels_per_promo = 25
-    promo_levels_offset = 56
-    eng_promo_pos = eng_xp_pos + promo_offset
-    scout_promo_pos = scout_xp_pos + promo_offset
-    drill_promo_pos = drill_xp_pos + promo_offset
-    gun_promo_pos = gun_xp_pos + promo_offset
-
-    eng_promo_bytes = struct.pack("i", new_values["xp"]["engineer"]["promo"])
-    eng_promo_level_bytes = struct.pack(
-        "i", new_values["xp"]["engineer"]["promo"] * levels_per_promo
-    )
-    scout_promo_bytes = struct.pack("i", new_values["xp"]["scout"]["promo"])
-    scout_promo_level_bytes = struct.pack(
-        "i", new_values["xp"]["scout"]["promo"] * levels_per_promo
-    )
-    drill_promo_bytes = struct.pack("i", new_values["xp"]["driller"]["promo"])
-    drill_promo_level_bytes = struct.pack(
-        "i", new_values["xp"]["driller"]["promo"] * levels_per_promo
-    )
-    gun_promo_bytes = struct.pack("i", new_values["xp"]["gunner"]["promo"])
-    gun_promo_level_bytes = struct.pack(
-        "i", new_values["xp"]["gunner"]["promo"] * levels_per_promo
-    )
-
-    save_data = save_data[:eng_xp_pos] + eng_xp_bytes + save_data[eng_xp_pos + 4 :]
-    save_data = (
-        save_data[:eng_promo_pos] + eng_promo_bytes + save_data[eng_promo_pos + 4 :]
-    )
-    save_data = (
-        save_data[: eng_promo_pos + promo_levels_offset]
-        + eng_promo_level_bytes
-        + save_data[eng_promo_pos + promo_levels_offset + 4 :]
-    )
-
-    save_data = (
-        save_data[:scout_xp_pos] + scout_xp_bytes + save_data[scout_xp_pos + 4 :]
-    )
-    save_data = (
-        save_data[:scout_promo_pos]
-        + scout_promo_bytes
-        + save_data[scout_promo_pos + 4 :]
-    )
-    save_data = (
-        save_data[: scout_promo_pos + promo_levels_offset]
-        + scout_promo_level_bytes
-        + save_data[scout_promo_pos + promo_levels_offset + 4 :]
-    )
-
-    save_data = (
-        save_data[:drill_xp_pos] + drill_xp_bytes + save_data[drill_xp_pos + 4 :]
-    )
-    save_data = (
-        save_data[:drill_promo_pos]
-        + drill_promo_bytes
-        + save_data[drill_promo_pos + 4 :]
-    )
-    save_data = (
-        save_data[: drill_promo_pos + promo_levels_offset]
-        + drill_promo_level_bytes
-        + save_data[drill_promo_pos + promo_levels_offset + 4 :]
-    )
-
-    save_data = save_data[:gun_xp_pos] + gun_xp_bytes + save_data[gun_xp_pos + 4 :]
-    save_data = (
-        save_data[:gun_promo_pos] + gun_promo_bytes + save_data[gun_promo_pos + 4 :]
-    )
-    save_data = (
-        save_data[: gun_promo_pos + promo_levels_offset]
-        + gun_promo_level_bytes
-        + save_data[gun_promo_pos + promo_levels_offset + 4 :]
-    )
-    # print(f'3. {len(save_data)}')
-    return save_data
-    # with open(f"{file_name}", "wb") as t:
-    #     t.write(save_data)
+        return player.apply_to_bytes(f.read(), change_data)
 
 
 @Slot()
@@ -1255,34 +1012,10 @@ def add_resources(res_dict):
         pass
 
 
-def init_values(save_data):
-    # global stats
-    # print('init values')
-    stats["xp"] = get_xp(save_data)
-    stats["misc"] = dict()
-    stats["misc"]["credits"] = get_credits(save_data)
-    stats["misc"]["perks"] = get_perk_points(save_data)
-    resources = get_resources(save_data)
-    stats["misc"]["cores"] = resources["cores"]
-    stats["misc"]["error"] = resources["error"]
-    stats["misc"]["data"] = resources["data"]
-    stats["misc"]["phazyonite"] = resources["phazyonite"]
-    stats["minerals"] = dict()
-    stats["minerals"]["bismor"] = resources["bismor"]
-    stats["minerals"]["enor"] = resources["enor"]
-    stats["minerals"]["jadiz"] = resources["jadiz"]
-    stats["minerals"]["croppa"] = resources["croppa"]
-    stats["minerals"]["magnite"] = resources["magnite"]
-    stats["minerals"]["umanite"] = resources["umanite"]
-    stats["brewing"] = dict()
-    stats["brewing"]["yeast"] = resources["yeast"]
-    stats["brewing"]["starch"] = resources["starch"]
-    stats["brewing"]["barley"] = resources["barley"]
-    stats["brewing"]["malt"] = resources["malt"]
-    stats["season"] = get_season_data(save_data)
-
-    # print('printing stats')
-    # pp(stats)
+def init_values(save_bytes):
+    """reads everything the editor shows from a save into stats"""
+    stats.update(player.read(gvas.loads(save_bytes)))
+    stats["season"] = get_season_data(save_bytes)
     return stats
 
 
@@ -1507,23 +1240,6 @@ campaign_baseline = None  # the assignments as the save has them
 campaign_state = None
 campaign_catalog = dict()
 campaigns_dirty = False
-resource_guids = {
-    "yeast": "078548B93232C04085F892E084A74100",
-    "starch": "72312204E287BC41815540A0CF881280",
-    "barley": "22DAA757AD7A8049891B17EDCC2FE098",
-    "bismor": "AF0DC4FE8361BB48B32C92CC97E21DE7",
-    "enor": "488D05146F5F754BA3D4610D08C0603E",
-    "malt": "41EA550C1D46C54BBE2E9CA5A7ACCB06",
-    "umanite": "5F2BCF8347760A42A23B6EDC07C0941D",
-    "jadiz": "22BC4F7D07D13E43BFCA81BD9C14B1AF",
-    "croppa": "8AA7FB43293A0B49B8BE42FFE068A44C",
-    "magnite": "AADED8766C227D408032AFD18D63561E",
-    "error": "5828652C9A5DE845A9E2E1B8B463C516",
-    "cores": "A10CB2853871FB499AC854A1CDE2202C",
-    "data": "99FA526AD87748459498905A278693F6",
-    "phazyonite": "67668AAE828FDB48A9111E1B912DBFA4",
-}
-
 def create_window():
     """builds the window, loads the reference data and connects everything up"""
     global widget, guid_dict, campaign_catalog, steam_path

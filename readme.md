@@ -19,9 +19,6 @@ python src/main/python/main.py
 ```
 Run it from the repository root, since `guids.json`, `cosmetics.json` and `campaigns.json` are read from the working directory.
 
-## Known Issues
-- The editor still finds most values (resources, XP, credits, perk points, promotions) by searching the raw save data. If something isn't in the save yet (e.g. a resource you've never owned) the editor can give nonsensical results. The solution is to acquire at least one of the resource in game _then_ use the editor.
-
 ## Troubleshooting
 If the editor fails to start, please run it from source (see Running from source) in a command prompt. This will let you see any error messages that will be necessary for bug fixes. 
 
