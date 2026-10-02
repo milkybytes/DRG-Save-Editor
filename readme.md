@@ -1,6 +1,10 @@
 # Deep Rock Galactic Save Editor
 
-This is a standalone DRG save editor written in python, using PySide6 and packaged with PyInstaller. Release builds are made by GitHub Actions when a `v*` tag is pushed.
+Continuation of the DRG Save Editor first created here: https://github.com/robertnunn/DRG-Save-Editor
+
+I decided to pick up on implementing some of the features here after being personally grievanced by some of the assignments locking you into them until you complete them, preventing me from picking up the holiday assignments to play with my friends.
+
+Standalone DRG save editor written in python, using PySide6 and packaged with PyInstaller. Release builds are made by GitHub Actions when a `v*` tag is pushed.
 
 ## Requirements
 - Windows 10 or later (the Qt 6 / modern Python builds don't support Windows 7)
@@ -13,11 +17,11 @@ Download the latest zip from the Releases page, extract it, and run `DRG Save Ed
 pip install -r requirements.txt
 python src/main/python/main.py
 ```
-Run it from the repository root, since `editor.ui`, `guids.json` and `campaigns.json` are read from the working directory.
+Run it from the repository root, since `guids.json`, `cosmetics.json` and `campaigns.json` are read from the working directory.
 
 ## Known Issues
-- Due to a change in how overclocks are stored adding overclocks is broken and will completely reset your save if you try it. As such, adding OCs has been disabled and will not happen, even if you somehow manage to add some to the "Acquired but unforged" section.
-- The editor works by looking for specific values in the raw data of the save, it doesn't decode the data into a nice, neat python object. As a result if certain things aren't present in the save (e.g., >0 forged overclocks, certain resources) the editor will malfunction and give nonsensical results. The solution is to acquire at least one of the resources in game _then_ use the editor.
+- The editor still finds most values (resources, XP, credits, perk points, promotions) by searching the raw save data. If something isn't in the save yet (e.g. a resource you've never owned) the editor can give nonsensical results. The solution is to acquire at least one of the resource in game _then_ use the editor.
+- Only some cosmetic overclocks are known: beards, moustaches, sideburns, headwear, victory poses and weapon skins. Any other overclock you have acquired but not forged is listed as "Unknown overclock" and kept in your save. Cosmetics that are not overclocks (armor paint jobs, hair and skin colours, ...) cannot be edited yet.
 
 ## Troubleshooting
 If the editor fails to start, please run it from source (see Running from source) in a command prompt. This will let you see any error messages that will be necessary for bug fixes. 
@@ -28,74 +32,21 @@ If the editor opens but doesn't edit your save properly (i.e., values not being 
 ### ALWAYS BACKUP YOUR SAVE FILE!
 The editor will make a backup of the save file you open in the same folder as the save file with the extension of `.old`. The editor makes this backup at the moment you open the save file.
 
-The editor should be pretty self-explanatory, see the screenshot below.
+The editor is split into pages, picked in the sidebar: Classes, Resources, Season, Overclocks and Assignments. Open a save, change what you want, and press **Save changes** (Ctrl+S). Save and Reset are only available while there are unsaved changes, which the top bar tells you about.
 
 Some notes:
-- There is a context menu in the overclock tree listing to add overclocks to the inventory
-- You can CTRL+Click on overclocks to select more than one
+- Overclocks are grouped by class and then by weapon; the cosmetic overclocks (beards, victory poses, ...) have a group per kind after the weapons. Use the search box and the class, type (weapon or cosmetic) and status filters to narrow the list. Select overclocks (Ctrl+Click or Shift+Click for several) and press **Add selected to inventory**. Selecting a whole weapon, cosmetic group or class adds everything unacquired under it that is currently shown.
+- Added overclocks go to **Acquired but unforged** on the right and are written to your save when you save. The list shows the class initial (D, E, G, S) in the class colour, a dot, then the weapon or cosmetic kind, then the name; weapon overclocks come first. Remove them from there the same way. In game you can then forge them (use **Add required materials** to get the resources for everything in that list).
+- The Season page edits one season at a time; the newest season is selected by default.
+- On the Assignments page you can tick assignments as completed, assign one as your active assignment, or complete or unassign the active one. Changes take effect at once on screen and are written to the save with everything else. The weekly assignments (Core Hunt and Priority Assignment) are managed by the game and are not listed.
 - Changing XP values will update the other relevant fields when the focus changes (i.e., click on a different part of the program or another program entirely)
 - If you have promotions beyond Legendary 3 those promotions will be preserved as long as the drop-down is set to "Legendary 3+". If you don't have enough promotions for a specific dwarf and set them to "Legendary 3+" it will keep whatever the original value was.
 
-![main_screen](sshot.png)
-## Changelog
-- v1.6
-    - Assignment support
-    - CI/CD flow for building the executable and running tests on PRs
-    - Upgrades to support Python 3.10+
-- v1.5
-    - Updated editor for Season 2
-    - Can adjust season xp and scrip
-    - Can edit amount of phazyonite
-    - Disabled adding OCs as it's currently broken and it's more effort than I'm willing to put in to figure it out. See the comments in main.py (line 767) if you're interested.
-    - Missing data for the new overclocks (for the new secondary weapons)
-- v1.4.4
-    - Added option to select all files when opening save files
-- v1.4.3
-    - Fixed a bug that prevented editing of XP levels for dwarves
-- v1.4.2
-    - Fixed a bug that would cause the editor to hang when opening old saves
-- v1.4.1
-    - Fixed lack of new OCs showing up
-- v1.4
-    - Updated for update 35
-        - Added new weapon overclocks (special thanks to [Eleison](https://github.com/Eleison) for all the new OC data)
-        - Added support for data cell resource
-        - Added support for season xp/level and scrip
-- v1.3.7
-    - Fixed a bug where the editor would crash with the microsoft store version of the game
-- v1.3.6
-    - Fixed a bug where an unexpected number of resources in the save file would throw off reading/writing of new values. The editor now reads how many entries there are and adjusts accordingly
-- v1.3.5
-    - Fixed a bug where promotions beyond Legendary 3 would be lost when saving. As long as the promotion is set to "Legendary 3+" before saving, the original number of promotions (and thus player rank) is preserved
-- v1.3.4
-    - Fixed a bug related to editing perk points when using a new save or a save that doesn't have any available perk points
-    - Added player rank calculation and rank title to the classes area
-- v1.3.3
-    - Fixed a bug related to opening saves that have not forged any overclocks
-    - Fixed a bug where resource counts would get mixed up
-- v1.3.2
-    - Fixed a bug in saving the game file that would truncate the save to a few hundred bytes
-- v1.3.1
-    - Forgot what I fixed here, lol
-- v1.3
-    - Added promotion support
-    - Added "Remove Selected" and "Remove All" buttons for the overclock inventory
-    - Updated "DRG Save Editing.txt" to correctly specify XP locations
-    - Refactored code to integrate with pytest (6.2.1)
-    - Fixed a critical bug that caused the editor to crash on opening a save file
-- v1.2
-    - Added auto-backup of save file upon opening the file
-    - Fixed bug with fetching xp values where the dwarves would have their xp values swapped
-- v1.1
-    - Fixed a bug with the overclock tree and overclock inventory wouldn't update properly when opening another save file after opening the first
-- v1.0
-    - Initial release
+![overclocks](sshot.png)
+![classes](sshot_classes.png)
 
-## To-Do
-- Cosmetic overclock support
-- GUI polish
-- Better readme
-- "Restore from backup" option in toolbar menu
+## Data sources
+Overclock names, costs and GUIDs in `guids.json` were verified against the game's own data (extracted with FModel).
 
 ## Would be nice, but ehh...
 - Character loadout support
