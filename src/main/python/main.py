@@ -152,29 +152,38 @@ def update_xp(dwarf, total_xp=0):
     update_rank()
 
 
+PROMOTIONS_BEFORE_LEGENDARY = 15  # five tiers (Bronze to Diamond) of three levels each
+
+
+def promo_count(dwarf):
+    """the number of promotions the tier and level on screen stand for; Legendary 1 is the 16th"""
+    tier = getattr(widget, dwarf + "_promo_box").currentIndex()
+    level = getattr(widget, dwarf + "_promo_level").value()
+    if tier == 0:
+        return 0
+    if tier <= 5:  # Bronze, Silver, Gold, Platinum, Diamond
+        return (tier - 1) * 3 + level
+    return PROMOTIONS_BEFORE_LEGENDARY + level
+
+
+def set_promo(dwarf, count):
+    if count <= 0:
+        tier, level = 0, 0
+    elif count <= PROMOTIONS_BEFORE_LEGENDARY:
+        tier, level = 1 + (count - 1) // 3, (count - 1) % 3 + 1
+    else:
+        tier, level = 6, count - PROMOTIONS_BEFORE_LEGENDARY
+    getattr(widget, dwarf + "_promo_box").setCurrentIndex(tier)  # also sets the range the level can take
+    if tier:
+        getattr(widget, dwarf + "_promo_level").setValue(level)
+
+
 def update_rank():
     global stats
-    global max_badges
-    s_promo = (
-        stats["xp"]["scout"]["promo"]
-        if int(widget.scout_promo_box.currentIndex()) == max_badges
-        else int(widget.scout_promo_box.currentIndex())
-    )
-    e_promo = (
-        stats["xp"]["engineer"]["promo"]
-        if int(widget.engineer_promo_box.currentIndex()) == max_badges
-        else int(widget.engineer_promo_box.currentIndex())
-    )
-    g_promo = (
-        stats["xp"]["gunner"]["promo"]
-        if int(widget.gunner_promo_box.currentIndex()) == max_badges
-        else int(widget.gunner_promo_box.currentIndex())
-    )
-    d_promo = (
-        stats["xp"]["driller"]["promo"]
-        if int(widget.driller_promo_box.currentIndex()) == max_badges
-        else int(widget.driller_promo_box.currentIndex())
-    )
+    s_promo = promo_count("scout")
+    e_promo = promo_count("engineer")
+    g_promo = promo_count("gunner")
+    d_promo = promo_count("driller")
 
     try:
         s_level = int(widget.scout_lvl_text.text())
@@ -229,7 +238,9 @@ def open_file():
     with open(f"{file_name}.old", "wb") as backup:
         backup.write(save_data)
 
-    # print(f'opened: {file_name}')
+    widget.statusBar().showMessage(
+        f"Opened {os.path.basename(file_name)}. A backup was written next to it as {os.path.basename(file_name)}.old", 10000
+    )
 
     show_save()
 
@@ -1055,7 +1066,6 @@ def restore_values():
     global unforged_ocs
     global unacquired_ocs
     global forged_ocs
-    global max_badges
     global xp_per_season_level
     # print('reset values')
     widget.bismor_text.setText(str(stats["minerals"]["bismor"]))
@@ -1076,7 +1086,6 @@ def restore_values():
     widget.core_text.setText(str(stats["misc"]["cores"]))
     widget.credits_text.setText(str(stats["misc"]["credits"]))
     widget.perk_text.setText(str(stats["misc"]["perks"]))
-    widget.data_text.setText(str(stats["misc"]["data"]))
     widget.phazy_text.setText(str(stats["misc"]["phazyonite"]))
     # print('after misc')
 
@@ -1084,44 +1093,28 @@ def restore_values():
     d_xp = xp_total_to_level(stats["xp"]["driller"]["xp"])
     widget.driller_lvl_text.setText(str(d_xp[0]))
     widget.driller_xp_2.setText(str(d_xp[1]))
-    widget.driller_promo_box.setCurrentIndex(
-        stats["xp"]["driller"]["promo"]
-        if stats["xp"]["driller"]["promo"] < max_badges
-        else max_badges
-    )
+    set_promo("driller", stats["xp"]["driller"]["promo"])
     # print('after driller')
 
     widget.engineer_xp.setText(str(stats["xp"]["engineer"]["xp"]))
     e_xp = xp_total_to_level(stats["xp"]["engineer"]["xp"])
     widget.engineer_lvl_text.setText(str(e_xp[0]))
     widget.engineer_xp_2.setText(str(e_xp[1]))
-    widget.engineer_promo_box.setCurrentIndex(
-        stats["xp"]["engineer"]["promo"]
-        if stats["xp"]["engineer"]["promo"] < max_badges
-        else max_badges
-    )
+    set_promo("engineer", stats["xp"]["engineer"]["promo"])
     # print('after engineer')
 
     widget.gunner_xp.setText(str(stats["xp"]["gunner"]["xp"]))
     g_xp = xp_total_to_level(stats["xp"]["gunner"]["xp"])
     widget.gunner_lvl_text.setText(str(g_xp[0]))
     widget.gunner_xp_2.setText(str(g_xp[1]))
-    widget.gunner_promo_box.setCurrentIndex(
-        stats["xp"]["gunner"]["promo"]
-        if stats["xp"]["gunner"]["promo"] < max_badges
-        else max_badges
-    )
+    set_promo("gunner", stats["xp"]["gunner"]["promo"])
     # print('after gunner')
 
     widget.scout_xp.setText(str(stats["xp"]["scout"]["xp"]))
     s_xp = xp_total_to_level(stats["xp"]["scout"]["xp"])
     widget.scout_lvl_text.setText(str(s_xp[0]))
     widget.scout_xp_2.setText(str(s_xp[1]))
-    widget.scout_promo_box.setCurrentIndex(
-        stats["xp"]["scout"]["promo"]
-        if stats["xp"]["scout"]["promo"] < max_badges
-        else max_badges
-    )
+    set_promo("scout", stats["xp"]["scout"]["promo"])
     # print('after scout')
 
     forged_ocs, unacquired_ocs, unforged_ocs = get_overclocks(save_data, guid_dict)
@@ -1295,7 +1288,6 @@ def init_values(save_data):
 
 def get_values():
     global stats
-    global max_badges
     xp_per_season_level = 5000
 
     ns = dict()
@@ -1326,31 +1318,14 @@ def get_values():
     ns["xp"]["gunner"]["xp"] = int(widget.gunner_xp.text())
     ns["xp"]["scout"]["xp"] = int(widget.scout_xp.text())
 
-    driller_promo = int(widget.driller_promo_box.currentIndex())
-    gunner_promo = int(widget.gunner_promo_box.currentIndex())
-    scout_promo = int(widget.scout_promo_box.currentIndex())
-    engineer_promo = int(widget.engineer_promo_box.currentIndex())
-
-    ns["xp"]["driller"]["promo"] = (
-        driller_promo if driller_promo < max_badges else stats["xp"]["driller"]["promo"]
-    )
-    ns["xp"]["engineer"]["promo"] = (
-        engineer_promo
-        if engineer_promo < max_badges
-        else stats["xp"]["engineer"]["promo"]
-    )
-    ns["xp"]["gunner"]["promo"] = (
-        gunner_promo if gunner_promo < max_badges else stats["xp"]["gunner"]["promo"]
-    )
-    ns["xp"]["scout"]["promo"] = (
-        scout_promo if scout_promo < max_badges else stats["xp"]["scout"]["promo"]
-    )
+    for dwarf in ("driller", "engineer", "gunner", "scout"):
+        ns["xp"][dwarf]["promo"] = promo_count(dwarf)
 
     ns["misc"]["error"] = int(widget.error_text.text())
     ns["misc"]["cores"] = int(widget.core_text.text())
     ns["misc"]["credits"] = int(widget.credits_text.text())
     ns["misc"]["perks"] = int(widget.perk_text.text())
-    ns["misc"]["data"] = int(widget.data_text.text())
+    ns["misc"]["data"] = stats["misc"]["data"]  # not editable; written back as the save has it
     ns["misc"]["phazyonite"] = int(widget.phazy_text.text())
 
     ns["season"] = season_values_on_screen()
@@ -1434,30 +1409,6 @@ xp_table = [
     315000,
 ]
 # ordered list of the promotion ranks (low -> high)
-promo_ranks = [
-    "None",
-    "Bronze 1",
-    "Bronze 2",
-    "Bronze 3",
-    "Silver 1",
-    "Silver 2",
-    "Silver 3",
-    "Gold 1",
-    "Gold 2",
-    "Gold 3",
-    "Platinum 1",
-    "Platinum 2",
-    "Platinum 3",
-    "Diamond 1",
-    "Diamond 2",
-    "Diamond 3",
-    "Legendary 1",
-    "Legendary 2",
-    "Legendary 3",
-    "Legendary 3+",
-]
-max_badges = len(promo_ranks) - 1
-
 # ordered list of player rank titles (low -> high)
 rank_titles = [
     "Greenbeard",
@@ -1615,19 +1566,10 @@ def create_window():
     # set column names for overclock treeview
     widget.overclock_tree.setHeaderLabels(["Name", "Status", "GUID"])
 
-    # populate the promotion drop downs
-    promo_boxes = [
-        widget.driller_promo_box,
-        widget.gunner_promo_box,
-        widget.engineer_promo_box,
-        widget.scout_promo_box,
-    ]
-    for i in promo_boxes:
-        for j in promo_ranks:
-            i.addItem(j)
-
-    # one entry per season; the newest is selected
+    # one entry per season; the newest is selected. Season 0 is the base game and has no levels, scrip or rewards
     for number, guid in season_guids.items():
+        if number == 0:
+            continue
         current = " (current)" if number == seasons.LATEST_SEASON else ""
         widget.season_picker.addItem(f"Season {number}{current}", guid)
     widget.season_picker.setCurrentIndex(widget.season_picker.findData(season_guid))
@@ -1663,6 +1605,10 @@ def create_window():
         edit.textChanged.connect(update_dirty)
     for combo in widget.data_combos:
         combo.currentIndexChanged.connect(update_dirty)
+    for spin in widget.data_spins:
+        spin.valueChanged.connect(update_dirty)
+    for dwarf in ("driller", "engineer", "gunner", "scout"):
+        getattr(widget, dwarf + "_promo_level").valueChanged.connect(update_rank)
     return widget
 
 
