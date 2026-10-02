@@ -1,0 +1,5222 @@
+{
+    "61663AF76E9AF24998F5AF8FB3DCED56": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee",
+        "cost": {
+            "credits": 4150,
+            "bismor": 30,
+            "croppa": 75,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2EDC6A088537CA44AA730FA9447D96BE": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 65,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "A195250E9D631045A8E71374DE0D53BC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee",
+        "cost": {
+            "credits": 4350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "9AF35F0E0B3E5F4FBEDD48253A94677D": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee",
+        "cost": {
+            "credits": 4800,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 25
+        },
+        "cosmetic": true
+    },
+    "77AE3CF6FFB74B4D950B5348FB4580E6": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Armored",
+        "cost": {
+            "credits": 5000,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 30,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A1B114BD2FE7BC40B1E8A8EBF831528C": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Armored",
+        "cost": {
+            "credits": 4150,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 65
+        },
+        "cosmetic": true
+    },
+    "6ABB2D979F899F46A4003A78E28DA772": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Armored",
+        "cost": {
+            "credits": 4650,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 65,
+            "jadiz": 0,
+            "magnite": 25,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F3A4FD0D86E26B4785C392CD93D148A4": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Armored",
+        "cost": {
+            "credits": 4050,
+            "bismor": 0,
+            "croppa": 25,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "46A9352EAB5A394C90713AA077486B5A": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Gilded",
+        "cost": {
+            "credits": 7600,
+            "bismor": 50,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 95,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A7775DA690D0C844ABD6535F66E78713": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Gilded",
+        "cost": {
+            "credits": 6800,
+            "bismor": 50,
+            "croppa": 90,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0BC76BADA06BC245A007110844909239": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Gilded",
+        "cost": {
+            "credits": 6850,
+            "bismor": 0,
+            "croppa": 40,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 150,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "5FE209EEE7058148B03FEFE5763EFE55": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Goatee - Gilded",
+        "cost": {
+            "credits": 8750,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 55,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "57BF86EFB094414FB94DF8746AEE5C90": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord",
+        "cost": {
+            "credits": 4350,
+            "bismor": 65,
+            "croppa": 25,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "94817E5E51C7294EB69B17A30CA068DC": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord",
+        "cost": {
+            "credits": 4800,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "3A06DD6F2F76554593C94191A1A613FA": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord",
+        "cost": {
+            "credits": 4700,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 70,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "49CC572057012B4C80F83EBE56607F80": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord",
+        "cost": {
+            "credits": 4400,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 75,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D9C01925A51F904F9D313F8EB78D7F48": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Armored",
+        "cost": {
+            "credits": 6350,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 145,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "341A8AB1A90485468015FAA18943633D": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Armored",
+        "cost": {
+            "credits": 7200,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 150,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "48CD86C5E0379147BAB8093104D6F808": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Armored",
+        "cost": {
+            "credits": 6950,
+            "bismor": 95,
+            "croppa": 60,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "A2D3228DDD596740831648D9757E38C3": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Armored",
+        "cost": {
+            "credits": 8150,
+            "bismor": 55,
+            "croppa": 0,
+            "enor": 150,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "747D361F64AC0547AEDF36A328766C15": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Gilded",
+        "cost": {
+            "credits": 18450,
+            "bismor": 0,
+            "croppa": 80,
+            "enor": 205,
+            "jadiz": 125,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0CAD4C95A5835944ACD9EFE3E78D1EE7": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Gilded",
+        "cost": {
+            "credits": 20550,
+            "bismor": 155,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 210,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B43BCC79097F6649B36555EA6AB32F51": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Gilded",
+        "cost": {
+            "credits": 21900,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 160,
+            "jadiz": 85,
+            "magnite": 190,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "712152EFDF39C94AA495AEBBFB7A5D26": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Bound Unicord - Gilded",
+        "cost": {
+            "credits": 21000,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 155,
+            "umanite": 185
+        },
+        "cosmetic": true
+    },
+    "6EDE2D9C7818A246AEF45C3F68B4F9B8": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance",
+        "cost": {
+            "credits": 8250,
+            "bismor": 40,
+            "croppa": 150,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "091BFE94651B334789B4E42067D1E4B3": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance",
+        "cost": {
+            "credits": 6000,
+            "bismor": 0,
+            "croppa": 80,
+            "enor": 155,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "18E222CA8EF67F4296C7E909ED3A6E09": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance",
+        "cost": {
+            "credits": 6050,
+            "bismor": 0,
+            "croppa": 95,
+            "enor": 0,
+            "jadiz": 40,
+            "magnite": 0,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "BD914AD6F462094DA623C71909366B95": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance",
+        "cost": {
+            "credits": 8350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 150,
+            "magnite": 85,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "A2AF969236A6DC4BB78A7E8D4F1B0645": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Armored",
+        "cost": {
+            "credits": 6550,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 55,
+            "magnite": 145,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "C77015CEBF7E2A4EA8C18B08635F77F9": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Armored",
+        "cost": {
+            "credits": 8450,
+            "bismor": 150,
+            "croppa": 40,
+            "enor": 0,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "AC02259A24298A428B470AEF9D64327E": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Armored",
+        "cost": {
+            "credits": 8450,
+            "bismor": 95,
+            "croppa": 60,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 160,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "87949A5AFAA4FB43BCD8EBE7504EDB88": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Armored",
+        "cost": {
+            "credits": 7600,
+            "bismor": 0,
+            "croppa": 45,
+            "enor": 0,
+            "jadiz": 145,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D02429EC2893674B8FDBB753BC2DFABC": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Gilded",
+        "cost": {
+            "credits": 20000,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 190,
+            "magnite": 130,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7E0FA6BAC77A4F4ABFEAC7D51211AF0D": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Gilded",
+        "cost": {
+            "credits": 19900,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 210,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B43D5935A920F24B85BAEECC71E9C52F": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Gilded",
+        "cost": {
+            "credits": 21500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 185,
+            "jadiz": 135,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "ED87D40EBD80C04E9F0C8351296F49A2": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Braided Abundance - Gilded",
+        "cost": {
+            "credits": 18350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 130,
+            "umanite": 210
+        },
+        "cosmetic": true
+    },
+    "2844DCB20127444E94C068B7084CB031": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Crested Waterfall",
+        "cost": {
+            "credits": 7350,
+            "bismor": 50,
+            "croppa": 0,
+            "enor": 150,
+            "jadiz": 0,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "514A30AC6C540041BC58223822458D0C": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Crested Waterfall",
+        "cost": {
+            "credits": 7500,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 150,
+            "magnite": 40,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7F0F810880273940ABEDE6AE30FF3E45": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Crested Waterfall",
+        "cost": {
+            "credits": 6500,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 55,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "97CC57439D913E449649C6BFAE88D928": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Crested Waterfall",
+        "cost": {
+            "credits": 8000,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 90,
+            "jadiz": 55,
+            "magnite": 160,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "C0937CAEA404434F9063D68E6EED92A6": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails",
+        "cost": {
+            "credits": 4400,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "76CE71B801D0894C8A1810D376BC5B3D": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails",
+        "cost": {
+            "credits": 4200,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 0,
+            "magnite": 65,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "705BBC79EEF9D24CAFE0E8305D8DEA12": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails",
+        "cost": {
+            "credits": 4050,
+            "bismor": 0,
+            "croppa": 35,
+            "enor": 0,
+            "jadiz": 75,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0FB8C9B027D47F42944B4FFA20026CA8": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails",
+        "cost": {
+            "credits": 4450,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 35,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 75
+        },
+        "cosmetic": true
+    },
+    "7237D4E441033741A01DCAD1A3322356": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Armored",
+        "cost": {
+            "credits": 6200,
+            "bismor": 55,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0F6401EE87EC5D4A9BC8EFFC9E4E6EFB": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Armored",
+        "cost": {
+            "credits": 6000,
+            "bismor": 95,
+            "croppa": 55,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "36DF1A56E859BD4A9F825A537D6D3657": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Armored",
+        "cost": {
+            "credits": 8800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 60,
+            "jadiz": 145,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B01F1940D854DD45ADD878507E9C0BEB": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Armored",
+        "cost": {
+            "credits": 7150,
+            "bismor": 160,
+            "croppa": 0,
+            "enor": 90,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 45
+        },
+        "cosmetic": true
+    },
+    "F24CE6922AA30E45BA2656FEDD69DBC6": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Gilded",
+        "cost": {
+            "credits": 7800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 155,
+            "jadiz": 80,
+            "magnite": 50,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "8DDF83BE38810947BF21547CF610DA09": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Gilded",
+        "cost": {
+            "credits": 8950,
+            "bismor": 0,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 0,
+            "umanite": 45
+        },
+        "cosmetic": true
+    },
+    "4B0DD8DDA2D83646AD3D60F81D09DC00": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Gilded",
+        "cost": {
+            "credits": 7900,
+            "bismor": 45,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 95,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "55521FB82C61704EB140237137E8A5A3": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Double Horsetails - Gilded",
+        "cost": {
+            "credits": 6700,
+            "bismor": 0,
+            "croppa": 90,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 145,
+            "umanite": 40
+        },
+        "cosmetic": true
+    },
+    "757F08E2D7323741A8922F3E0CCB764E": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork",
+        "cost": {
+            "credits": 4450,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 35
+        },
+        "cosmetic": true
+    },
+    "92572EB18EF9454E9C7FE106D43E8BD6": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork",
+        "cost": {
+            "credits": 4450,
+            "bismor": 30,
+            "croppa": 80,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "031B1191B0EF4C40A88722EFF502A5BC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork",
+        "cost": {
+            "credits": 4500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 75,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "729C82F348779743A3B10EC818918D8E": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork",
+        "cost": {
+            "credits": 4300,
+            "bismor": 65,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "3B7A940A555AB541818CE8D288288543": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Armored",
+        "cost": {
+            "credits": 18200,
+            "bismor": 0,
+            "croppa": 220,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 125,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "4F7834795AE9ED4B96B408B21DC9D59E": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Armored",
+        "cost": {
+            "credits": 19200,
+            "bismor": 0,
+            "croppa": 215,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 150,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F64339BD891D7A418A0A3F8F67BB6339": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Armored",
+        "cost": {
+            "credits": 18350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 195,
+            "jadiz": 140,
+            "magnite": 90,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "FA2A811F7BA02143A8DC720BC10965C5": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Armored",
+        "cost": {
+            "credits": 18300,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 185,
+            "magnite": 150,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DB32FE0A13D017428F8A297C7A3AC0D2": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Gilded",
+        "cost": {
+            "credits": 18650,
+            "bismor": 0,
+            "croppa": 200,
+            "enor": 0,
+            "jadiz": 145,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "55548FEB0CD0054CA8AF13B20DB032B3": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Gilded",
+        "cost": {
+            "credits": 19800,
+            "bismor": 0,
+            "croppa": 215,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 160,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "BA0CB1E455B2124EB0CECF94DFE26190": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Gilded",
+        "cost": {
+            "credits": 21550,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 220,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "0CA7BA9F689C254288C747B80507CC95": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Great Fork - Gilded",
+        "cost": {
+            "credits": 20950,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 155,
+            "magnite": 0,
+            "umanite": 180
+        },
+        "cosmetic": true
+    },
+    "BEA34DCB785EF045A4EA02D4FFDB2AEB": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid",
+        "cost": {
+            "credits": 4450,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 75
+        },
+        "cosmetic": true
+    },
+    "D8F42571DACC934283A600A3C9B54C2C": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid",
+        "cost": {
+            "credits": 4350,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 35,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "378E5279CF6C1C439745F9AEDC0B5B6D": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid",
+        "cost": {
+            "credits": 4700,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 75
+        },
+        "cosmetic": true
+    },
+    "9D69BAFC803C79468C1BD4F19DC68F8F": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid",
+        "cost": {
+            "credits": 4200,
+            "bismor": 75,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "528272F06CAF124AB0B94491874638DB": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Armored",
+        "cost": {
+            "credits": 8550,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 160,
+            "jadiz": 95,
+            "magnite": 45,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7A792906B704CD46AF84BC1AABB92B70": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Armored",
+        "cost": {
+            "credits": 7400,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 55,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "C5C7B98A618CC148A3E52D5C79662F9A": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Armored",
+        "cost": {
+            "credits": 7200,
+            "bismor": 50,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "07293708DAA389498156F44643A7ECB4": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Armored",
+        "cost": {
+            "credits": 8500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 50,
+            "magnite": 160,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "343D44CF8B8A784E8173EBAE6ECEE284": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Gilded",
+        "cost": {
+            "credits": 21300,
+            "bismor": 0,
+            "croppa": 210,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 130
+        },
+        "cosmetic": true
+    },
+    "8273FA7F2EEF5B49A74ACB1CD31D79AB": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Gilded",
+        "cost": {
+            "credits": 21600,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 0,
+            "jadiz": 180,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "8EBED52E802A074C97694420ACD7B2FE": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Gilded",
+        "cost": {
+            "credits": 18950,
+            "bismor": 155,
+            "croppa": 220,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "30571AA459A4D64FB2E250DBE61ABCA7": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Massive Braid - Gilded",
+        "cost": {
+            "credits": 18800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 200,
+            "jadiz": 155,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "041C5654EDE9584DA5D9F90FD78E5A00": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 60,
+            "umanite": 35
+        },
+        "cosmetic": true
+    },
+    "073AAD3FD24DFE4F8B33E9F9996F1DAA": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt",
+        "cost": {
+            "credits": 4150,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 65,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A72C0AB07899024294326854A8D1FF22": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt",
+        "cost": {
+            "credits": 4150,
+            "bismor": 0,
+            "croppa": 25,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 70,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0462C6C099A9FC48BBBE1497243DC38F": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt",
+        "cost": {
+            "credits": 4350,
+            "bismor": 35,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 65,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "26B8B7DE93212944964B671FBF161F25": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Armored",
+        "cost": {
+            "credits": 21950,
+            "bismor": 0,
+            "croppa": 215,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 125,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "3109AFD12BD54041B2C15F5374E6C37D": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Armored",
+        "cost": {
+            "credits": 21000,
+            "bismor": 145,
+            "croppa": 180,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "8398B4FB4EE510419D81D747DF0CADF2": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Armored",
+        "cost": {
+            "credits": 21850,
+            "bismor": 0,
+            "croppa": 90,
+            "enor": 0,
+            "jadiz": 180,
+            "magnite": 0,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "8582E2FDF59D094D863D1A1C463E8465": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Armored",
+        "cost": {
+            "credits": 18800,
+            "bismor": 195,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A86118E5A6F0854E88A77593DB738240": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Gilded",
+        "cost": {
+            "credits": 19400,
+            "bismor": 90,
+            "croppa": 200,
+            "enor": 125,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DFCA2BF2A68C10408D4A6237244E46D4": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Gilded",
+        "cost": {
+            "credits": 21500,
+            "bismor": 190,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 130,
+            "umanite": 85
+        },
+        "cosmetic": true
+    },
+    "05FCD97020B35443AF7543C94ABE40BC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Gilded",
+        "cost": {
+            "credits": 18550,
+            "bismor": 85,
+            "croppa": 150,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 220,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "1A16C6C4EF1B2F4CA7FE15530A96C293": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Mighty Pelt - Gilded",
+        "cost": {
+            "credits": 18150,
+            "bismor": 90,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 215
+        },
+        "cosmetic": true
+    },
+    "4CCC6A8770AD184A8BB3BAE25BA52932": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee",
+        "cost": {
+            "credits": 8500,
+            "bismor": 45,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "EB30CC3220457C46951D3D92D07E8600": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee",
+        "cost": {
+            "credits": 8000,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 145,
+            "magnite": 40,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "C784FC098B2C2349B7903746728BB233": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee",
+        "cost": {
+            "credits": 8050,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 55,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B462EA1392801C43A28E68CC8A6867DD": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee",
+        "cost": {
+            "credits": 6350,
+            "bismor": 40,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 150,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "3EA08519D1926141BE8B4450A5073F96": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Armored",
+        "cost": {
+            "credits": 7150,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "D0C23786AD6B4B469A962118E02F1BDA": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Armored",
+        "cost": {
+            "credits": 6750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "E2BFB9AFCBF39846BBFC7C971B614620": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Armored",
+        "cost": {
+            "credits": 8950,
+            "bismor": 140,
+            "croppa": 45,
+            "enor": 100,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F099AE9CD104D74DA179016B6BFF8117": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Armored",
+        "cost": {
+            "credits": 8550,
+            "bismor": 60,
+            "croppa": 95,
+            "enor": 0,
+            "jadiz": 145,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "4E86BCF8F790974CBB68F8EC7D9EFDE1": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Gilded",
+        "cost": {
+            "credits": 6250,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 55
+        },
+        "cosmetic": true
+    },
+    "3C775FA87476CB42ACED368E8E0333FC": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Gilded",
+        "cost": {
+            "credits": 8450,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 90,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B555BDECAA29FF4AABDC65CE3815CF59": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Gilded",
+        "cost": {
+            "credits": 6350,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 160,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DFE84FD9F09C854C85123700C4190B0A": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Monumental Goatee - Gilded",
+        "cost": {
+            "credits": 6850,
+            "bismor": 0,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 40,
+            "magnite": 140,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "128351533F04524ABB7E24E54F45267B": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Rambunctious Elder",
+        "cost": {
+            "credits": 4500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "368B17796751344293E5D71E263A5614": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Rambunctious Elder",
+        "cost": {
+            "credits": 4300,
+            "bismor": 70,
+            "croppa": 25,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B0D569831E40A84F8919CBEEB104E4CA": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Rambunctious Elder",
+        "cost": {
+            "credits": 4050,
+            "bismor": 35,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 75,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "458F51D8016F684E81EB2DBB75F44DB6": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Rambunctious Elder",
+        "cost": {
+            "credits": 4650,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 60,
+            "jadiz": 0,
+            "magnite": 25,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2AEC94AE81C36242AA23CE16E548F593": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full",
+        "cost": {
+            "credits": 8900,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 150,
+            "magnite": 55,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "26C8A60E73E5E24D925CC7C10DF85E23": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full",
+        "cost": {
+            "credits": 7950,
+            "bismor": 0,
+            "croppa": 55,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 140,
+            "umanite": 85
+        },
+        "cosmetic": true
+    },
+    "3D463858E978E741B61DDA4926432333": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full",
+        "cost": {
+            "credits": 6950,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 155,
+            "jadiz": 45,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "6FE1292C2C141B4FA6C87ED3027AEAE9": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full",
+        "cost": {
+            "credits": 7650,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 50,
+            "jadiz": 0,
+            "magnite": 100,
+            "umanite": 155
+        },
+        "cosmetic": true
+    },
+    "FB8EBB0CEDC5724D83DA4A0D7433BD1F": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Armored",
+        "cost": {
+            "credits": 7250,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 80,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "6D480C024E38A548B5FF2ECFA9941C0D": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Armored",
+        "cost": {
+            "credits": 6700,
+            "bismor": 0,
+            "croppa": 95,
+            "enor": 55,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "A1CC6CE747B1B1428936BA7A00CF2794": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Armored",
+        "cost": {
+            "credits": 6300,
+            "bismor": 0,
+            "croppa": 50,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 150,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "73BC4FE02D65E342A6F9E9C432111C0D": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Armored",
+        "cost": {
+            "credits": 6550,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 95,
+            "magnite": 145,
+            "umanite": 40
+        },
+        "cosmetic": true
+    },
+    "83E4075044FCF0409114E72C7927508F": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Gilded",
+        "cost": {
+            "credits": 19000,
+            "bismor": 195,
+            "croppa": 80,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 150,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "71D5D7BAD7A94A4EB2DF6B184EC18FB4": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Gilded",
+        "cost": {
+            "credits": 21950,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 195,
+            "jadiz": 80,
+            "magnite": 130,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "9E2A10282436CF4CB9F091CC04AACED6": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Gilded",
+        "cost": {
+            "credits": 20100,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 205
+        },
+        "cosmetic": true
+    },
+    "0D06CC9B496832468D395406EA52AC98": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Savage Full - Gilded",
+        "cost": {
+            "credits": 18500,
+            "bismor": 0,
+            "croppa": 160,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 210
+        },
+        "cosmetic": true
+    },
+    "3B329409A6767B468F0A0B8D5B484111": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Tank Division",
+        "cost": {
+            "credits": 18900,
+            "bismor": 0,
+            "croppa": 80,
+            "enor": 200,
+            "jadiz": 145,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "439CB5C60B61C549BD881C8D75FF9230": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Tank Division",
+        "cost": {
+            "credits": 21400,
+            "bismor": 0,
+            "croppa": 210,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "001CFF15DA69B345A83081A45F98F41E": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Tank Division",
+        "cost": {
+            "credits": 18200,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 180,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "73BF23D043373E4580A5531F3C359BA2": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Tank Division",
+        "cost": {
+            "credits": 21050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 215,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 125
+        },
+        "cosmetic": true
+    },
+    "72F68C80C914ED4093054D4D35824A67": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble",
+        "cost": {
+            "credits": 8900,
+            "bismor": 155,
+            "croppa": 55,
+            "enor": 0,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A7F00BC5E57E714FBFF80223D5AE85FB": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble",
+        "cost": {
+            "credits": 6800,
+            "bismor": 50,
+            "croppa": 90,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "BFDFFEE79961C941B8A0625D805260A2": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble",
+        "cost": {
+            "credits": 6150,
+            "bismor": 0,
+            "croppa": 40,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 155,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "8C083C3258255D49B1C925CD4BF3F0E7": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble",
+        "cost": {
+            "credits": 8650,
+            "bismor": 155,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 95,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "21B2CC029A6B7841A66350804000B108": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Armored",
+        "cost": {
+            "credits": 21800,
+            "bismor": 215,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "B2C965FB4B2B00459AD10EFE8EBD55E2": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Armored",
+        "cost": {
+            "credits": 19550,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 185,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "093AD89BB93BDB499BE1511522C727C5": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Armored",
+        "cost": {
+            "credits": 20350,
+            "bismor": 85,
+            "croppa": 125,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 195
+        },
+        "cosmetic": true
+    },
+    "3752FAAF585EFC4EA7494AE773D79CAB": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Armored",
+        "cost": {
+            "credits": 19000,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 210,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2369AC77ED54F34B8B8F765930885303": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Gilded",
+        "cost": {
+            "credits": 20750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 155,
+            "magnite": 205,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "51A6D632B1ACEA4BB78425233FC82ACA": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Gilded",
+        "cost": {
+            "credits": 21650,
+            "bismor": 90,
+            "croppa": 195,
+            "enor": 150,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "CAF94833431465479E273D7D3FEB7883": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Gilded",
+        "cost": {
+            "credits": 20800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 80,
+            "jadiz": 0,
+            "magnite": 120,
+            "umanite": 180
+        },
+        "cosmetic": true
+    },
+    "9401F67C636BDB4A8C6697E3390EAC63": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Triple Trouble - Gilded",
+        "cost": {
+            "credits": 21700,
+            "bismor": 0,
+            "croppa": 160,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 190,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "9905F0216445204A95D6A5202748F70E": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry",
+        "cost": {
+            "credits": 8350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 160,
+            "jadiz": 60,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "C39A70CB15263D4CBCA802DDE7A88B81": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry",
+        "cost": {
+            "credits": 8550,
+            "bismor": 145,
+            "croppa": 100,
+            "enor": 0,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "FFB1FC9B64CB7948B2847F99DDE6B0ED": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry",
+        "cost": {
+            "credits": 8850,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 40,
+            "jadiz": 0,
+            "magnite": 95,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "68A33ABA5F066947A4583BFA66E9AAF7": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry",
+        "cost": {
+            "credits": 8850,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 160,
+            "magnite": 45,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "0BB901474E86B044BD087ACEF991677B": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Armored",
+        "cost": {
+            "credits": 21450,
+            "bismor": 190,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 160,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "E2678693893BFE43A92C096943E733F7": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Armored",
+        "cost": {
+            "credits": 20600,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 140,
+            "umanite": 215
+        },
+        "cosmetic": true
+    },
+    "ED2A578660B8E8498805C9DBF7BE7FA4": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Armored",
+        "cost": {
+            "credits": 19250,
+            "bismor": 205,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 145,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B7B5D45E868EC845B1C7D70006589DC6": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Armored",
+        "cost": {
+            "credits": 20550,
+            "bismor": 0,
+            "croppa": 80,
+            "enor": 145,
+            "jadiz": 180,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "410001063419AD47B7E92F266F5EDD89": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Gilded",
+        "cost": {
+            "credits": 18550,
+            "bismor": 210,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 125,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "4B380C099A35CC4E92ABD3BE4F9EAB53": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Gilded",
+        "cost": {
+            "credits": 20400,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 150,
+            "jadiz": 200,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "0790ADF11BE56649B329854A150639FD": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Gilded",
+        "cost": {
+            "credits": 19550,
+            "bismor": 0,
+            "croppa": 185,
+            "enor": 85,
+            "jadiz": 130,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "6D3A35EECE87514E96AFADA3AE96324F": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Beards",
+        "name": "Twinned Wintry - Gilded",
+        "cost": {
+            "credits": 21150,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 205,
+            "magnite": 90,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DA6D56BA7CFF804CB56C4D905570D9D3": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "First Blood",
+        "cost": {
+            "credits": 6800,
+            "bismor": 0,
+            "croppa": 100,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 40,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "CC5D0702B7DE394496C1527D6DB5D3AB": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "First Blood",
+        "cost": {
+            "credits": 7750,
+            "bismor": 50,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 145,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "232EF84A0CD7D04F8FCF5783FBEEDDBC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "First Blood",
+        "cost": {
+            "credits": 6650,
+            "bismor": 95,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 45,
+            "umanite": 160
+        },
+        "cosmetic": true
+    },
+    "99B72A198F5B1D499C0BA4F7A65682C8": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "First Blood",
+        "cost": {
+            "credits": 8700,
+            "bismor": 0,
+            "croppa": 95,
+            "enor": 0,
+            "jadiz": 45,
+            "magnite": 0,
+            "umanite": 155
+        },
+        "cosmetic": true
+    },
+    "CE52A5A360F6FB4789B71D412E01DF25": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Full Headwrap",
+        "cost": {
+            "credits": 18000,
+            "bismor": 185,
+            "croppa": 140,
+            "enor": 0,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "48747363FFF2A347991DCD722042802C": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Full Headwrap",
+        "cost": {
+            "credits": 19350,
+            "bismor": 80,
+            "croppa": 185,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 125
+        },
+        "cosmetic": true
+    },
+    "06DB567FBC5B784DAF5FEBACB4CA472F": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Full Headwrap",
+        "cost": {
+            "credits": 21850,
+            "bismor": 140,
+            "croppa": 0,
+            "enor": 80,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 210
+        },
+        "cosmetic": true
+    },
+    "2EBF4A7813BB4E419503599C8E723019": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Full Headwrap",
+        "cost": {
+            "credits": 20850,
+            "bismor": 0,
+            "croppa": 160,
+            "enor": 205,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "9CE216AD96A3C74E913CB269FB12B92B": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Goggled Headwrap",
+        "cost": {
+            "credits": 8750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 50,
+            "jadiz": 0,
+            "magnite": 85,
+            "umanite": 155
+        },
+        "cosmetic": true
+    },
+    "3F4C96339E806649AC0CF092D1B600C7": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Goggled Headwrap",
+        "cost": {
+            "credits": 8000,
+            "bismor": 0,
+            "croppa": 85,
+            "enor": 55,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "2B2C4F363532E34493B8EE3B94DDE297": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Goggled Headwrap",
+        "cost": {
+            "credits": 6150,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 45,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "93FAADCBE779354198547C4C5FC11822": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Goggled Headwrap",
+        "cost": {
+            "credits": 6600,
+            "bismor": 140,
+            "croppa": 0,
+            "enor": 100,
+            "jadiz": 0,
+            "magnite": 45,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "4EB8302EF7A91141979A329AA98E7C82": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Full Face",
+        "cost": {
+            "credits": 18150,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 150,
+            "magnite": 0,
+            "umanite": 190
+        },
+        "cosmetic": true
+    },
+    "CAD7453FF0DE264F8C6FE900205E7165": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Full Face",
+        "cost": {
+            "credits": 20550,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 185,
+            "umanite": 130
+        },
+        "cosmetic": true
+    },
+    "7115FE6C1FFD7B469CCEE3F39A68004D": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Full Face",
+        "cost": {
+            "credits": 20500,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 180,
+            "umanite": 155
+        },
+        "cosmetic": true
+    },
+    "BB3FDC1D4A938D4EB02661444A616EE1": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Full Face",
+        "cost": {
+            "credits": 19400,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 90,
+            "jadiz": 180,
+            "magnite": 0,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "6173D956142C894DAB000B80C29A80CA": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Half Face",
+        "cost": {
+            "credits": 7850,
+            "bismor": 0,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 45,
+            "magnite": 145,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2A3F4BA95D41CA4DA146088BA798B7B3": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Half Face",
+        "cost": {
+            "credits": 7350,
+            "bismor": 50,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 160,
+            "magnite": 90,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7C3E58144AB94A49A881132F986BCA0F": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Half Face",
+        "cost": {
+            "credits": 6850,
+            "bismor": 140,
+            "croppa": 45,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "1EEDEDCECE00554D8F1CE5863D728021": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Grim Specter - Half Face",
+        "cost": {
+            "credits": 7000,
+            "bismor": 80,
+            "croppa": 50,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B79F62AADB90494F9DE08BB9804872D6": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Heatwave",
+        "cost": {
+            "credits": 6850,
+            "bismor": 0,
+            "croppa": 90,
+            "enor": 0,
+            "jadiz": 50,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "56CC637212D44249BBAA9804086A5375": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Heatwave",
+        "cost": {
+            "credits": 7100,
+            "bismor": 145,
+            "croppa": 50,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "56AC1604B196144FA650970A8F766FDF": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Heatwave",
+        "cost": {
+            "credits": 7000,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 150,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "1D515C163D8A7947B936DEFC2AD897D1": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Heatwave",
+        "cost": {
+            "credits": 7700,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 150,
+            "jadiz": 40,
+            "magnite": 0,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "3D5F5C0F91BD174AB06ADE6F21F8F3CA": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Iron Cyclops",
+        "cost": {
+            "credits": 7400,
+            "bismor": 0,
+            "croppa": 150,
+            "enor": 0,
+            "jadiz": 95,
+            "magnite": 0,
+            "umanite": 40
+        },
+        "cosmetic": true
+    },
+    "D717AA5755B05F48B14BBFF2DB9A4A40": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Iron Cyclops",
+        "cost": {
+            "credits": 6400,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 55,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0B8E6DE74813A541AA5980D46687AD18": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Iron Cyclops",
+        "cost": {
+            "credits": 7950,
+            "bismor": 140,
+            "croppa": 45,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "E259B87F6E458345BFE25091738F2BE4": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Iron Cyclops",
+        "cost": {
+            "credits": 6450,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 50,
+            "jadiz": 0,
+            "magnite": 80,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "BA6555FCD26DC04D983E53D8AA4B4B27": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Spiked Mohawk",
+        "cost": {
+            "credits": 19200,
+            "bismor": 0,
+            "croppa": 215,
+            "enor": 0,
+            "jadiz": 120,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "C2E43B3AF2F5EA438F3B7111FEDFFA48": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Spiked Mohawk",
+        "cost": {
+            "credits": 21350,
+            "bismor": 0,
+            "croppa": 90,
+            "enor": 0,
+            "jadiz": 160,
+            "magnite": 0,
+            "umanite": 210
+        },
+        "cosmetic": true
+    },
+    "F5F8EFDA78D0AE4FAC19C86D426852CB": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Spiked Mohawk",
+        "cost": {
+            "credits": 21100,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 200,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "463635FF771AC143B7B20375BFE46F8B": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Spiked Mohawk",
+        "cost": {
+            "credits": 21750,
+            "bismor": 0,
+            "croppa": 120,
+            "enor": 180,
+            "jadiz": 0,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F2011EC3C60F9647B703DECFE4A99DB2": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Techy Hard Hat",
+        "cost": {
+            "credits": 8650,
+            "bismor": 150,
+            "croppa": 95,
+            "enor": 0,
+            "jadiz": 60,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "4D3F1FDBB4A65E42AB91B9A277CBB956": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Techy Hard Hat",
+        "cost": {
+            "credits": 6600,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 95,
+            "magnite": 55,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "459FA7CBB507D143B70462F2FC3B06ED": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Techy Hard Hat",
+        "cost": {
+            "credits": 7050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 50,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 155
+        },
+        "cosmetic": true
+    },
+    "A6C5053EDD564B4E9990F6A8E1A42816": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Headwear",
+        "name": "Techy Hard Hat",
+        "cost": {
+            "credits": 7800,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 95,
+            "magnite": 45,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "206E82CB0C3916488970FAC71A03FC64": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bangled Braids",
+        "cost": {
+            "credits": 6250,
+            "bismor": 140,
+            "croppa": 0,
+            "enor": 80,
+            "jadiz": 0,
+            "magnite": 60,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2F9F5358A42A9D4AA43E24AD8B509466": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bangled Braids",
+        "cost": {
+            "credits": 7150,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 160,
+            "umanite": 55
+        },
+        "cosmetic": true
+    },
+    "5B480F3DAAB4CE47A88E2BA3D5253E6A": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bangled Braids",
+        "cost": {
+            "credits": 7850,
+            "bismor": 145,
+            "croppa": 100,
+            "enor": 45,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "E8385FD4C8D94F4586BFC7DBA0D03127": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bangled Braids",
+        "cost": {
+            "credits": 8250,
+            "bismor": 160,
+            "croppa": 45,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "D26CB8AB8915914AA069A724AE74A41B": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bound Braids",
+        "cost": {
+            "credits": 8650,
+            "bismor": 140,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "E6C8FE21260C724694A0017F165DF0FB": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bound Braids",
+        "cost": {
+            "credits": 8500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 95,
+            "umanite": 45
+        },
+        "cosmetic": true
+    },
+    "792CD558DAE5744EA4F8F6FFCAFB5FA1": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bound Braids",
+        "cost": {
+            "credits": 6300,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 50,
+            "umanite": 160
+        },
+        "cosmetic": true
+    },
+    "B2D7363C9E72884A9BC87DD412B7F98C": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bound Braids",
+        "cost": {
+            "credits": 7250,
+            "bismor": 60,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "54ECFE7314721F4FB982948B58263471": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bushy Goodguy",
+        "cost": {
+            "credits": 4900,
+            "bismor": 0,
+            "croppa": 35,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "BBA07C6D7BEDDD44873B692A6E2619CA": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bushy Goodguy",
+        "cost": {
+            "credits": 4800,
+            "bismor": 60,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "1C85DFE7F200844CAE560316CAE83462": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bushy Goodguy",
+        "cost": {
+            "credits": 4350,
+            "bismor": 75,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D478A9A710689B4A8B121DC6C9353DE6": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Bushy Goodguy",
+        "cost": {
+            "credits": 4800,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 60,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "5925EC01971ADE47A3B7F97266F52E2D": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Crescent Moon",
+        "cost": {
+            "credits": 4500,
+            "bismor": 60,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "452639C663B41942B46593B1E365EAA1": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Crescent Moon",
+        "cost": {
+            "credits": 4350,
+            "bismor": 70,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "00E852DA04EC1F41A7453C44E43734AC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Crescent Moon",
+        "cost": {
+            "credits": 4950,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "27D63D799D0D714E8BA7ADF0E2ABF4D2": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Crescent Moon",
+        "cost": {
+            "credits": 4150,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 70,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2879F88BDA5E6E41A19F53D89D6A98ED": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Curly Optimist",
+        "cost": {
+            "credits": 8500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 100,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "0AC503D713EC504E885C890C79C1DF21": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Curly Optimist",
+        "cost": {
+            "credits": 6350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 0,
+            "magnite": 100,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "921AFA83858ACD4C851CF4E48679039B": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Curly Optimist",
+        "cost": {
+            "credits": 8900,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 60,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "49D503FEB77D4840842378D5ED9F9E02": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Curly Optimist",
+        "cost": {
+            "credits": 7000,
+            "bismor": 95,
+            "croppa": 145,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 60
+        },
+        "cosmetic": true
+    },
+    "CC654EEBB409CB419C6595820F29DFCD": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Dandy Handlebar",
+        "cost": {
+            "credits": 5000,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "756E2E98500C2A4E94145AD1C74A8310": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Dandy Handlebar",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 35,
+            "jadiz": 0,
+            "magnite": 75,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D39157F7E7B63E42A6AA878D72428958": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Dandy Handlebar",
+        "cost": {
+            "credits": 4100,
+            "bismor": 75,
+            "croppa": 0,
+            "enor": 25,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "79D6A03B9C8B5C46B62B71B8A9CE8E65": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Dandy Handlebar",
+        "cost": {
+            "credits": 4850,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 65,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "ADA4588578300343A7AAEEF69A5B887C": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Exquisite Handlebar",
+        "cost": {
+            "credits": 4650,
+            "bismor": 0,
+            "croppa": 80,
+            "enor": 0,
+            "jadiz": 25,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "1A8E5E30D8E6DD408886B8040C76A967": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Exquisite Handlebar",
+        "cost": {
+            "credits": 4500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "C9B5582A06C9E246BD4A227C423ED3CB": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Exquisite Handlebar",
+        "cost": {
+            "credits": 4800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 65,
+            "magnite": 30,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D5BE9E531322534C80BD965B9C6EC567": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Exquisite Handlebar",
+        "cost": {
+            "credits": 4950,
+            "bismor": 0,
+            "croppa": 65,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 30,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A9E0A5F7A1776F4BAD3BD1B00FC274E6": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Lowrider",
+        "cost": {
+            "credits": 4050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 65,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "EF2F700C45230E4FB6B3ADAEE2037D2D": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Lowrider",
+        "cost": {
+            "credits": 4200,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 75,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7A849BA73AE86B40AF4CEBB892EA28AA": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Lowrider",
+        "cost": {
+            "credits": 4600,
+            "bismor": 65,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "C84AA40C83D32741928E24E568ACE897": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Lowrider",
+        "cost": {
+            "credits": 4050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "27736089E56F9E4BA69E9F5C5B22B482": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Magnificent Raider",
+        "cost": {
+            "credits": 7800,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 60,
+            "jadiz": 0,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "33E40CC6BFE7E640A99A078C23C7D63B": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Magnificent Raider",
+        "cost": {
+            "credits": 6700,
+            "bismor": 0,
+            "croppa": 95,
+            "enor": 50,
+            "jadiz": 150,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "26E427636D622449B3D73D974D51582B": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Magnificent Raider",
+        "cost": {
+            "credits": 8850,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 45,
+            "magnite": 160,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0F977ADDE207194DAC0DF3E1882C5D98": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Magnificent Raider",
+        "cost": {
+            "credits": 6100,
+            "bismor": 155,
+            "croppa": 100,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 40,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "23C1CFAF0735B948B2BED64B9FB3BED1": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Marshall",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 65,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "E0095EEFFCB1BE48A77F5333786075E6": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Marshall",
+        "cost": {
+            "credits": 4300,
+            "bismor": 75,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "283CF849EC0C5B46A0C283AC6ABCFCEC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Marshall",
+        "cost": {
+            "credits": 4800,
+            "bismor": 25,
+            "croppa": 0,
+            "enor": 60,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "283035CD8B1D4D449195E6F8DE2AAAA6": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Marshall",
+        "cost": {
+            "credits": 4100,
+            "bismor": 25,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F40A692448F67642904B7453D48820AC": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Spiky Neurotic",
+        "cost": {
+            "credits": 4850,
+            "bismor": 0,
+            "croppa": 70,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "EFBB4BAF9F385444976CA76793B465E5": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Spiky Neurotic",
+        "cost": {
+            "credits": 4250,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 35,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "282205748C61084B86E24E53E0AB0514": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Spiky Neurotic",
+        "cost": {
+            "credits": 4500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 80,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A594B2DCAD9E0346A7EB06FDF9DD1812": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Moustaches",
+        "name": "Spiky Neurotic",
+        "cost": {
+            "credits": 4700,
+            "bismor": 0,
+            "croppa": 65,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "D5AD7FC62BD72546A0BF55D9836C29FA": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Berserker",
+        "cost": {
+            "credits": 5000,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 70,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "7D3BF914FDB10249905409A74A79EB9B": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Berserker",
+        "cost": {
+            "credits": 4450,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 75,
+            "magnite": 30,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "436AF44E2E79CA4492972DC2CEB7B1D9": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Berserker",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 25,
+            "magnite": 80,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "AA0B1D5009B1F545BAD1F2CA91B38513": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Berserker",
+        "cost": {
+            "credits": 4650,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 60,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B110F25DF0110145866AEC14F14A828C": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Braided Bangles",
+        "cost": {
+            "credits": 8100,
+            "bismor": 50,
+            "croppa": 95,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "EEE903E5FAC9F545BB5422E7B2274B6C": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Braided Bangles",
+        "cost": {
+            "credits": 8700,
+            "bismor": 95,
+            "croppa": 160,
+            "enor": 50,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "37EB7CCE89C86C4C9859D21140DB6C5B": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Braided Bangles",
+        "cost": {
+            "credits": 8050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 140,
+            "jadiz": 0,
+            "magnite": 50,
+            "umanite": 100
+        },
+        "cosmetic": true
+    },
+    "F3CAC802683BF44F81D266224BE21B2F": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Braided Bangles",
+        "cost": {
+            "credits": 8400,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 90,
+            "jadiz": 60,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "652CFF7E036DA54CAE43CE799487466C": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Immense Danglies",
+        "cost": {
+            "credits": 6450,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 55,
+            "jadiz": 0,
+            "magnite": 140,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "727FFDC15B70B54195262E40DA3DCB5F": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Immense Danglies",
+        "cost": {
+            "credits": 6350,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 55,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "30F143E8DE86D14382EC0021C543D0B3": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Immense Danglies",
+        "cost": {
+            "credits": 6150,
+            "bismor": 155,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 60,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "5D6E2C425F16B04290EB879CBE60CE25": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Immense Danglies",
+        "cost": {
+            "credits": 7300,
+            "bismor": 90,
+            "croppa": 0,
+            "enor": 155,
+            "jadiz": 0,
+            "magnite": 45,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A207791FB142564B87950918537DE93B": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Pointed Noble",
+        "cost": {
+            "credits": 4100,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 75,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7257830C565EF042A0FC5013D8F2565B": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Pointed Noble",
+        "cost": {
+            "credits": 4850,
+            "bismor": 0,
+            "croppa": 35,
+            "enor": 70,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "252837B28E95AC4CB99AB163A3A8FBB5": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Pointed Noble",
+        "cost": {
+            "credits": 4900,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "4326EA0E6E2A4147B041B995B22CE901": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Pointed Noble",
+        "cost": {
+            "credits": 4400,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 75,
+            "magnite": 30,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "1FC76A1B1306A64CB12CC19D65B67B4A": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "The Thickest",
+        "cost": {
+            "credits": 4750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 35,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "4C595231465DAC468D03A0863A2FBF07": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "The Thickest",
+        "cost": {
+            "credits": 4800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 35
+        },
+        "cosmetic": true
+    },
+    "20CF7A9319FA8C46870BBA7CBD4C26D4": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "The Thickest",
+        "cost": {
+            "credits": 4750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 25,
+            "umanite": 65
+        },
+        "cosmetic": true
+    },
+    "2B27BF047EC90142B4FB2D43CF97D6FE": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "The Thickest",
+        "cost": {
+            "credits": 4850,
+            "bismor": 25,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 75
+        },
+        "cosmetic": true
+    },
+    "55857CDB2310954E84D4B743B884BE78": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Upbeat Youngling",
+        "cost": {
+            "credits": 4250,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 75
+        },
+        "cosmetic": true
+    },
+    "81772335FD25C944BC212B28D0BA5E5E": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Upbeat Youngling",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "677B92A272909846A69BFCA07E8DD57F": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Upbeat Youngling",
+        "cost": {
+            "credits": 4750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "5DD169F8FC31B245B4D29F849E1C49E9": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Upbeat Youngling",
+        "cost": {
+            "credits": 4350,
+            "bismor": 30,
+            "croppa": 60,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "9FC413521E119C4FA3EF305D412C9443": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Valiant Berserker",
+        "cost": {
+            "credits": 6100,
+            "bismor": 40,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 145,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A27A24157207564385FC9CC02E38A71E": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Valiant Berserker",
+        "cost": {
+            "credits": 8650,
+            "bismor": 55,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 145,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F95D01CB98D06F468AC2F61A12BCCE20": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Valiant Berserker",
+        "cost": {
+            "credits": 7500,
+            "bismor": 0,
+            "croppa": 95,
+            "enor": 40,
+            "jadiz": 0,
+            "magnite": 160,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "10E8A47EFCAE994CA3C0FEDA6E2AD770": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Sideburns",
+        "name": "Valiant Berserker",
+        "cost": {
+            "credits": 8100,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 55,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "A5482D68A2F8D64AB7372582E8DAA032": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Barrel Drop",
+        "cost": {
+            "credits": 7250,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 45,
+            "magnite": 85,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "975EA783C10E4342BFF67F1370DF29A4": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Barrel Drop",
+        "cost": {
+            "credits": 8400,
+            "bismor": 95,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 160,
+            "magnite": 55,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "9FF744DE9DE2D743B61E0417569A6E5F": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Barrel Drop",
+        "cost": {
+            "credits": 6900,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 90,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "AF862486216347459F0582F9DF6E5F8D": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Barrel Drop",
+        "cost": {
+            "credits": 7700,
+            "bismor": 150,
+            "croppa": 60,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 95,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "1F2A0E1480086047BE16AC075B600890": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Crystal Lover",
+        "cost": {
+            "credits": 8700,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 50,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DE38C69FCC4A604FA6C5B12B992757D6": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Crystal Lover",
+        "cost": {
+            "credits": 7150,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 55,
+            "jadiz": 90,
+            "magnite": 160,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B064BB0C780BEB499A8A3C742685BDC1": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Crystal Lover",
+        "cost": {
+            "credits": 7200,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 0,
+            "magnite": 150,
+            "umanite": 85
+        },
+        "cosmetic": true
+    },
+    "E88A42A1DA699D4499AB66C44237A5AD": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Crystal Lover",
+        "cost": {
+            "credits": 7900,
+            "bismor": 0,
+            "croppa": 90,
+            "enor": 150,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DC680DA7101FA846A14E4A56505FFB7C": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Dual Drink Drop",
+        "cost": {
+            "credits": 7200,
+            "bismor": 50,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "16BD6F06CEDB0A49AE526B708B9E3304": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Dual Drink Drop",
+        "cost": {
+            "credits": 7900,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "4C4C0724600339478741F7937D5EA4DB": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Dual Drink Drop",
+        "cost": {
+            "credits": 8500,
+            "bismor": 55,
+            "croppa": 95,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 145,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "8AEF822867E04E42833C4495A21B9D42": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Dual Drink Drop",
+        "cost": {
+            "credits": 8100,
+            "bismor": 40,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 150,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "579D94DF13434544893AAD7EE4236C94": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Fingerguns",
+        "cost": {
+            "credits": 6250,
+            "bismor": 0,
+            "croppa": 45,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "2501DB6FB63D9146A23ABB4B76BDF059": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Fingerguns",
+        "cost": {
+            "credits": 7700,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 160,
+            "jadiz": 45,
+            "magnite": 0,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "652B2CCAF98A654482312A5B32F5D8F0": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Fingerguns",
+        "cost": {
+            "credits": 8500,
+            "bismor": 160,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 60
+        },
+        "cosmetic": true
+    },
+    "C5AF5E9B34ECA6418147939B2170B3F4": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Fingerguns",
+        "cost": {
+            "credits": 7900,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 95,
+            "magnite": 0,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "6AD6EE737359854390F383A5063E818F": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Flex Them Guns",
+        "cost": {
+            "credits": 6950,
+            "bismor": 60,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 145,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "45C213444AF4C54BA5ADBA78BA3F8863": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Flex Them Guns",
+        "cost": {
+            "credits": 7000,
+            "bismor": 0,
+            "croppa": 45,
+            "enor": 160,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "603D8975A5930843933F550244B64F03": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Flex Them Guns",
+        "cost": {
+            "credits": 7600,
+            "bismor": 100,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 50,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "252A3B113AB95F41ABC3D806CCBF7353": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Flex Them Guns",
+        "cost": {
+            "credits": 8200,
+            "bismor": 45,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 80,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D06F793D8403044EBF8F5289A522016A": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Furious Clown",
+        "cost": {
+            "credits": 8000,
+            "bismor": 50,
+            "croppa": 155,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "6579EF11C006FC43A61A3C5DBD8FB320": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Furious Clown",
+        "cost": {
+            "credits": 7750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 155,
+            "magnite": 95,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "5F9C249980B7F14188405876B613E95A": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Furious Clown",
+        "cost": {
+            "credits": 6850,
+            "bismor": 145,
+            "croppa": 0,
+            "enor": 45,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "1AC31D79EE76CD4FB0C30F5E4B6B1B07": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Furious Clown",
+        "cost": {
+            "credits": 8850,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 45,
+            "magnite": 150,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "6E3CCD1072151F45AC3FFC585B8C082F": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Smooches",
+        "cost": {
+            "credits": 8700,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 55,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 85
+        },
+        "cosmetic": true
+    },
+    "880C5D886F25EA4E9AB7A39C252C98F6": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Smooches",
+        "cost": {
+            "credits": 7000,
+            "bismor": 50,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 140,
+            "umanite": 90
+        },
+        "cosmetic": true
+    },
+    "96FF392D81DB6645AB797EAB207B0414": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Smooches",
+        "cost": {
+            "credits": 8450,
+            "bismor": 155,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 45
+        },
+        "cosmetic": true
+    },
+    "2C6E9634F6EC494DAEE4E7AA07DA31D7": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Smooches",
+        "cost": {
+            "credits": 8700,
+            "bismor": 85,
+            "croppa": 40,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 155,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "EECB02473469334CA7C740B024B20951": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Swarmer Stomp",
+        "cost": {
+            "credits": 7200,
+            "bismor": 0,
+            "croppa": 100,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 55,
+            "umanite": 155
+        },
+        "cosmetic": true
+    },
+    "2D65FB86EFB65C4B95B80C58AD7DB8BF": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Swarmer Stomp",
+        "cost": {
+            "credits": 8050,
+            "bismor": 140,
+            "croppa": 55,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "4D7DD0C473708B43AC0B02B6EEB83732": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Swarmer Stomp",
+        "cost": {
+            "credits": 6350,
+            "bismor": 100,
+            "croppa": 140,
+            "enor": 0,
+            "jadiz": 55,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "23836E524FFB4847AC0D741C755F52F6": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Swarmer Stomp",
+        "cost": {
+            "credits": 7500,
+            "bismor": 0,
+            "croppa": 150,
+            "enor": 50,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 95
+        },
+        "cosmetic": true
+    },
+    "CEAE52BFC7396D4FBFF23CF5A375B9FA": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Theatrical Bow",
+        "cost": {
+            "credits": 8200,
+            "bismor": 45,
+            "croppa": 0,
+            "enor": 140,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7915F391D912494D94BCDE8E5FEB31E3": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Theatrical Bow",
+        "cost": {
+            "credits": 8750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 90,
+            "jadiz": 0,
+            "magnite": 40,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "0D930FA90469BB4F906160013DF89500": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Theatrical Bow",
+        "cost": {
+            "credits": 6750,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 50,
+            "jadiz": 95,
+            "magnite": 0,
+            "umanite": 150
+        },
+        "cosmetic": true
+    },
+    "B2F054F8C4409B4D9951708E25E1D848": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Victory Poses",
+        "name": "Theatrical Bow",
+        "cost": {
+            "credits": 6700,
+            "bismor": 40,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "78FD630A6E171948AE7971FA6E2D8938": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Beyond The Circuit",
+        "cost": {
+            "credits": 4950,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 70,
+            "jadiz": 25,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "6D10449F24DD664B9A74BBC5F27ACB45": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Beyond The Circuit",
+        "cost": {
+            "credits": 4700,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 75,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "18A46CD106DB914EA97E83969CB2F5AA": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Beyond The Circuit",
+        "cost": {
+            "credits": 4750,
+            "bismor": 75,
+            "croppa": 25,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "00A771FF5D0E0A4A99EA88742216979F": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Beyond The Circuit",
+        "cost": {
+            "credits": 4500,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 25,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "9A0E1103F2A70047AE9107344562D08A": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Bubblegum",
+        "cost": {
+            "credits": 19100,
+            "bismor": 0,
+            "croppa": 200,
+            "enor": 85,
+            "jadiz": 125,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "8F3EE4D221E177419A37C7B07FB4FDFA": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Bubblegum",
+        "cost": {
+            "credits": 20600,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 85,
+            "jadiz": 130,
+            "magnite": 185,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F47574AFF5C2E84BA8D756D6CDC8F23A": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Bubblegum",
+        "cost": {
+            "credits": 20850,
+            "bismor": 85,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 200,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "AC03E8E22DB9DF4AA8F2FD927EE7D679": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Bubblegum",
+        "cost": {
+            "credits": 20550,
+            "bismor": 0,
+            "croppa": 130,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 205,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "505C06CEDB127947BBB3440FCA85E0C7": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Buff",
+        "cost": {
+            "credits": 20750,
+            "bismor": 80,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 195,
+            "magnite": 125,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "220F2F1BAA39E641B9FC075172D05EF0": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Buff",
+        "cost": {
+            "credits": 19650,
+            "bismor": 80,
+            "croppa": 135,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 210
+        },
+        "cosmetic": true
+    },
+    "09459420543A6B42A7732A520BB4FBD8": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Buff",
+        "cost": {
+            "credits": 20950,
+            "bismor": 0,
+            "croppa": 185,
+            "enor": 0,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 140
+        },
+        "cosmetic": true
+    },
+    "10F8262C2CD4DE479BE31E704F8E13FE": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Buff",
+        "cost": {
+            "credits": 21550,
+            "bismor": 190,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 80,
+            "magnite": 0,
+            "umanite": 160
+        },
+        "cosmetic": true
+    },
+    "271E933D027AC143B4A66DEAEF7751F2": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Dark Descent",
+        "cost": {
+            "credits": 8850,
+            "bismor": 0,
+            "croppa": 150,
+            "enor": 40,
+            "jadiz": 100,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "97BC96DADBC9454086FA5AD869A4B267": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Dark Descent",
+        "cost": {
+            "credits": 6800,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 150,
+            "umanite": 55
+        },
+        "cosmetic": true
+    },
+    "40EDCF0270C14D49A6D9A2ABBFB9C72B": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Dark Descent",
+        "cost": {
+            "credits": 8500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 90,
+            "magnite": 45,
+            "umanite": 145
+        },
+        "cosmetic": true
+    },
+    "423651EE4BD218478DAAC0E6EDA454A4": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Dark Descent",
+        "cost": {
+            "credits": 6150,
+            "bismor": 150,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 90,
+            "umanite": 55
+        },
+        "cosmetic": true
+    },
+    "E90A88FF1C5F21469B05C127E91E742E": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Desert Ranger",
+        "cost": {
+            "credits": 6700,
+            "bismor": 100,
+            "croppa": 0,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 55,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "155AF38BBE9B5845952E516057FB58A7": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Desert Ranger",
+        "cost": {
+            "credits": 8500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 160,
+            "jadiz": 0,
+            "magnite": 50,
+            "umanite": 85
+        },
+        "cosmetic": true
+    },
+    "7C24E9B36958914A988B44228B28947A": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Desert Ranger",
+        "cost": {
+            "credits": 8150,
+            "bismor": 155,
+            "croppa": 45,
+            "enor": 0,
+            "jadiz": 90,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "30F5B84AB6C163469A817A7FB24C04D9": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Desert Ranger",
+        "cost": {
+            "credits": 6650,
+            "bismor": 155,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 40,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "DD099E18A977854B8D598DC6F571CFD1": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Digital Danger",
+        "cost": {
+            "credits": 4500,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 0,
+            "umanite": 80
+        },
+        "cosmetic": true
+    },
+    "AD6637CBDC4129448AD5EAD550DBD821": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Digital Danger",
+        "cost": {
+            "credits": 4750,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "CB16F211D171CB4AAF0BCA6654E90F34": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Digital Danger",
+        "cost": {
+            "credits": 4450,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 30,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 70
+        },
+        "cosmetic": true
+    },
+    "E3757D9719D1D54F9812D68760FEE738": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Digital Danger",
+        "cost": {
+            "credits": 4900,
+            "bismor": 0,
+            "croppa": 65,
+            "enor": 35,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "32DD081B9019954B96CEBEC0FB6DA0AC": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Flaming Hot",
+        "cost": {
+            "credits": 18050,
+            "bismor": 120,
+            "croppa": 0,
+            "enor": 180,
+            "jadiz": 0,
+            "magnite": 80,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F8529400C3325E4C975BF783F626574E": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Flaming Hot",
+        "cost": {
+            "credits": 21700,
+            "bismor": 205,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 150,
+            "magnite": 0,
+            "umanite": 85
+        },
+        "cosmetic": true
+    },
+    "F2C943DF1F0F8A4D902A5CF66C03E1FE": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Flaming Hot",
+        "cost": {
+            "credits": 21000,
+            "bismor": 0,
+            "croppa": 85,
+            "enor": 0,
+            "jadiz": 200,
+            "magnite": 155,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B9A48A7CE5D31247B74E3E053695A32F": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Flaming Hot",
+        "cost": {
+            "credits": 18500,
+            "bismor": 135,
+            "croppa": 190,
+            "enor": 0,
+            "jadiz": 85,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7C4A8041FAB53744835782DCBC680BF3": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Ghostly Pale",
+        "cost": {
+            "credits": 4450,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 30,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "8500B75544EEAC41AD48486F36662352": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Ghostly Pale",
+        "cost": {
+            "credits": 4550,
+            "bismor": 35,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 75,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "AA29C52DC8E3C144A64AF5085354D95D": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Ghostly Pale",
+        "cost": {
+            "credits": 4950,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 70,
+            "umanite": 35
+        },
+        "cosmetic": true
+    },
+    "AEB31F34C467AB47B1A3171D01204280": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Ghostly Pale",
+        "cost": {
+            "credits": 4050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 35,
+            "jadiz": 0,
+            "magnite": 70,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "F1AF1C0FFA2F0E41BBABE5C3E1FA2FF5": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Jungle Raid",
+        "cost": {
+            "credits": 6750,
+            "bismor": 0,
+            "croppa": 85,
+            "enor": 145,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 50
+        },
+        "cosmetic": true
+    },
+    "1918F6DC5B8304408A8529DFC1082826": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Jungle Raid",
+        "cost": {
+            "credits": 6200,
+            "bismor": 0,
+            "croppa": 145,
+            "enor": 90,
+            "jadiz": 0,
+            "magnite": 45,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2C96A7F1A58DD44084C30EC13E927ACF": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Jungle Raid",
+        "cost": {
+            "credits": 8750,
+            "bismor": 0,
+            "croppa": 155,
+            "enor": 90,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 45
+        },
+        "cosmetic": true
+    },
+    "03DD947E247E31498A465DE4E1C5DEFD": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Jungle Raid",
+        "cost": {
+            "credits": 6850,
+            "bismor": 95,
+            "croppa": 0,
+            "enor": 150,
+            "jadiz": 50,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "54FA656BB5C13045B014FC3FA6B44F2B": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Metallic Vintage",
+        "cost": {
+            "credits": 5000,
+            "bismor": 70,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "33E8BCA42DD7414FA117A3BA91E9033B": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Metallic Vintage",
+        "cost": {
+            "credits": 4350,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 25,
+            "magnite": 75,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "00433EDBCE2C7C429E73C083F5E343FB": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Metallic Vintage",
+        "cost": {
+            "credits": 4700,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 65,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "69B282971E7C7C4AAC5459A866DDA508": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Metallic Vintage",
+        "cost": {
+            "credits": 4600,
+            "bismor": 0,
+            "croppa": 70,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 25,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "268CD890C6FBFA4BA45276EA2F765B43": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Mint Assault",
+        "cost": {
+            "credits": 4900,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 60,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "D73DF2942A28AC4487C942ADA0B0E3C9": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Mint Assault",
+        "cost": {
+            "credits": 4700,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 30,
+            "magnite": 65,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "898F556E7FB0E24A82BAE1B632B63FDC": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Mint Assault",
+        "cost": {
+            "credits": 4100,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 80,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0AD58675EBBE9D4D9F74FDA8F01A0AB3": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Mint Assault",
+        "cost": {
+            "credits": 4300,
+            "bismor": 0,
+            "croppa": 75,
+            "enor": 0,
+            "jadiz": 25,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "88582CAC3BAE11468101A90365A9D408": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Primal Blood",
+        "cost": {
+            "credits": 4850,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 70,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "2E3D76F816A102458CB7ECE40A3EE379": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Primal Blood",
+        "cost": {
+            "credits": 4400,
+            "bismor": 0,
+            "croppa": 30,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 60
+        },
+        "cosmetic": true
+    },
+    "A61ED1A342B6CD46904FB0E72B14A2A4": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Primal Blood",
+        "cost": {
+            "credits": 4850,
+            "bismor": 25,
+            "croppa": 60,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "837261BE1333C145B4EB5A516B2051A8": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Primal Blood",
+        "cost": {
+            "credits": 4100,
+            "bismor": 0,
+            "croppa": 65,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 25
+        },
+        "cosmetic": true
+    },
+    "448A069E1A2E6146A4D7A128BFB95BDA": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Tool of Destruction",
+        "cost": {
+            "credits": 4200,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 25,
+            "jadiz": 60,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "0FD44B1BCA3D5247932CB6E71F3E96EF": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Tool of Destruction",
+        "cost": {
+            "credits": 4300,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 65,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "2CA9299DB4E7B54987FED5DA8339C5DA": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Tool of Destruction",
+        "cost": {
+            "credits": 4350,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 75,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "B6005D67F948404BB4EC5D8E65EDC5D9": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Tool of Destruction",
+        "cost": {
+            "credits": 4650,
+            "bismor": 75,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 35,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "C2946BCF130E67458BFA362975CA5041": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Trusty Rusty",
+        "cost": {
+            "credits": 8700,
+            "bismor": 40,
+            "croppa": 80,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 160
+        },
+        "cosmetic": true
+    },
+    "2A80200C16DB0A4E875411B6DD06A648": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Trusty Rusty",
+        "cost": {
+            "credits": 7650,
+            "bismor": 140,
+            "croppa": 0,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 55,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "7EDAE191C63AF54E94BC93446C855E73": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Trusty Rusty",
+        "cost": {
+            "credits": 8700,
+            "bismor": 60,
+            "croppa": 0,
+            "enor": 95,
+            "jadiz": 0,
+            "magnite": 140,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "78125D11F52EFC4494AFA3F4CEEE8268": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Trusty Rusty",
+        "cost": {
+            "credits": 7550,
+            "bismor": 100,
+            "croppa": 145,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 50,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "E41681A6A2EA8444B2E75BDF8970DADA": {
+        "class": "Driller",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Warmonger",
+        "cost": {
+            "credits": 4050,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 70,
+            "magnite": 0,
+            "umanite": 30
+        },
+        "cosmetic": true
+    },
+    "D15B2C0C2F865C4A8F5EB354CB11C78F": {
+        "class": "Engineer",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Warmonger",
+        "cost": {
+            "credits": 4600,
+            "bismor": 0,
+            "croppa": 0,
+            "enor": 75,
+            "jadiz": 25,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "E880C5F6E793A44FBAC97FAD188ACF5F": {
+        "class": "Gunner",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Warmonger",
+        "cost": {
+            "credits": 4500,
+            "bismor": 30,
+            "croppa": 0,
+            "enor": 70,
+            "jadiz": 0,
+            "magnite": 0,
+            "umanite": 0
+        },
+        "cosmetic": true
+    },
+    "EC3273875A4E724482CF62D7D8EECF16": {
+        "class": "Scout",
+        "weapon": "Cosmetic - Weapon Skins",
+        "name": "Warmonger",
+        "cost": {
+            "credits": 4250,
+            "bismor": 60,
+            "croppa": 0,
+            "enor": 0,
+            "jadiz": 0,
+            "magnite": 30,
+            "umanite": 0
+        },
+        "cosmetic": true
+    }
+}

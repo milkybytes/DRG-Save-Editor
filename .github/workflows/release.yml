@@ -16,8 +16,7 @@ jobs:
         with:
           python-version: "3.13"
       - run: pip install -r requirements.txt pytest
-      # test_editor.py needs new sample saves (see readme), so only the parser/assignment tests run for now
-      - run: python -m pytest tests/test_gvas.py -q
+      - run: python -m pytest -q
 
   release:
     # only for version tags, e.g. `git tag v1.6 && git push origin v1.6`
@@ -39,7 +38,7 @@ jobs:
             --icon "$PWD/src/main/icons/Icon.ico" --paths src/main/python \
             src/main/python/main.py
           # the app reads these from next to the exe
-          cp editor.ui guids.json campaigns.json "dist/DRG Save Editor/"
+          cp editor.ui guids.json cosmetics.json campaigns.json "dist/DRG Save Editor/"
       - name: Zip
         shell: pwsh
         run: Compress-Archive -Path "dist/DRG Save Editor" -DestinationPath "DRG-Save-Editor-${{ github.ref_name }}.zip"
