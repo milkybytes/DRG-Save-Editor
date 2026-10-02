@@ -23,7 +23,6 @@ import seasons
 import theme
 import ui_main
 
-
 def data_path(name):
     """data files (guids.json, cosmetics.json, ...) sit next to the exe when frozen, in the working directory otherwise"""
     if getattr(sys, "frozen", False):
@@ -324,6 +323,14 @@ def unforged_item(guid, entry):
 
 def guid_of_list_item(item):
     return item.data(Qt.UserRole)
+
+
+def unforged_label(guid, entry):
+    if not isinstance(entry, dict):  # a cosmetic we have no data for
+        return f"Cosmetic: {guid}"
+    if entry.get("cosmetic"):  # every cosmetic exists once per class
+        return f'{entry["class"]}: {entry["weapon"]}: {entry["name"]} ({guid})'
+    return f'{entry["weapon"]}: {entry["name"]} ({guid})'
 
 
 def populate_unforged_list(list_widget, unforged):

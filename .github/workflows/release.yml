@@ -40,6 +40,7 @@ jobs:
           # the app reads these from next to the exe
           cp guids.json cosmetics.json campaigns.json "dist/DRG Save Editor/"
           cp -r src/main/images "dist/DRG Save Editor/images"
+
       - name: Zip
         shell: pwsh
         run: Compress-Archive -Path "dist/DRG Save Editor" -DestinationPath "DRG-Save-Editor-${{ github.ref_name }}.zip"
